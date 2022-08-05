@@ -1,0 +1,7 @@
+<resources>
+    <item type="id" name="v_status"/>
+    <item type="id" name="v_title"/>
+    <item type="id" name="back"/>
+    <item type="id" name="customer"/>
+    <item type="id" name="toast_msg"/>
+</resources>

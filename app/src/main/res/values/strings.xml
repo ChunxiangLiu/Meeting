@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">遇见</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="splash_text">HI,\n
+                                交友从聊天开始,\n
+                                拥有从此刻开始，\n
+                                真心是最深情的表白，\n
+                                欢迎来到~~平台！
+    </string>
+
+    <string name="dailog_register_or_login_bt_text">注册/登录</string>
+    <string name="dailog_register_or_login_bt_tips">注册/登录即表示已阅读并同意用户协议和隐私政策</string>
+    <string name="user_xy">用户协议</string>
+    <string name="user_ys">隐私政策</string>
+</resources>

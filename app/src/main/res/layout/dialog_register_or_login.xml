@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawable_white_radius_15"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+
+    <TextView
+        android:id="@+id/tv_registerOrlogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_30"
+        android:background="@mipmap/ic_dialog_register_or_login_bt_bg"
+        android:gravity="center"
+        android:text="@string/dailog_register_or_login_bt_text"
+        android:textColor="@color/white"
+        android:textSize="16dp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_30"
+        android:layout_marginBottom="@dimen/margin_30"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:button="@drawable/drawalbe_selector"
+            android:checked="true"
+            android:clickable="false" />
+
+        <TextView
+            android:id="@+id/tv_tv_registerOrlogin_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_8"
+            android:text="@string/dailog_register_or_login_bt_tips"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_12" />
+    </LinearLayout>
+
+
+</LinearLayout>
