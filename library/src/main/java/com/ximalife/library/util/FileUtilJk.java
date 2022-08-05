@@ -63,7 +63,7 @@ public class FileUtilJk {
     static String cachePath = "";
     public static String getCacheImgPath() {
         String cachePath;
-        cachePath = getSDPath(BaseAppApplication.context) + "/" + PictrueSavePath;
+        cachePath = getSDPath(BaseAppApplication.Companion.getInstance()) + "/" + PictrueSavePath;
         addIgnore(cachePath);
         File file = new File(cachePath);
         if (!file.exists()) {
@@ -75,7 +75,7 @@ public class FileUtilJk {
     public static String getAudioPath() {
 //        return getInsideFilePath();
         String cachePath;
-        cachePath = getSDPath(BaseAppApplication.context) + "/" + AudioSavePath;
+        cachePath = getSDPath(BaseAppApplication.Companion.getInstance()) + "/" + AudioSavePath;
         File file = new File(cachePath);
         if (!file.exists()) {
             file.mkdirs();
@@ -282,7 +282,7 @@ public class FileUtilJk {
     public static String getImagePath(Uri uri, String selection) {
         String path = null;
         // 通过Uri和selection来获取真实的图片路径
-        Cursor cursor = BaseAppApplication.context.getContentResolver().query(uri, null, selection, null, null);
+        Cursor cursor = BaseAppApplication.Companion.getInstance().getContentResolver().query(uri, null, selection, null, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
                 path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));

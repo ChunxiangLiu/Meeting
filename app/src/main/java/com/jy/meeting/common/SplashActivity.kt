@@ -9,9 +9,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
     private val mHandler = Handler()
     private val delayTime: Long = 2000
 
-    override fun getToolBar(): Int {
-        return 0
-    }
 
     override fun initView() {
         setShowRegisterOrLoginDialog()

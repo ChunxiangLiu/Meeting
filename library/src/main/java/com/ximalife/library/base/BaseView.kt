@@ -4,7 +4,10 @@ import android.app.ProgressDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.view.Window
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
@@ -14,6 +17,7 @@ import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
 import com.umeng.analytics.MobclickAgent
+import com.ximalife.library.R
 import com.ximalife.library.dialog.AlertDialogCustom
 import com.ximalife.library.http.IIBaseViewModelEventObserver
 import com.ximalife.library.http.viewmodel.BaseViewModel
@@ -58,14 +62,15 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: (LayoutInflat
 //        AndroidBug5497Workaround.assistActivity(this)
         //注册事件
         EvenBusUtil.instance().register(this)
-        initImmersionBar()
+        initStatusBar()
         initViewModelEvent()
         initView()
 //        initSoftKeyboard()
     }
 
-    abstract fun getToolBar(): Int
+    open fun getToolBar() {}
     open fun initView() {}
+    open fun initListener() {}
 
     /**
      * 状态栏文字 true是白色 false是黑色
@@ -88,18 +93,27 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: (LayoutInflat
     open fun onMessageEvent(message: EventMessage<Objects>?) {
     }
 
-    fun initImmersionBar() {
-        if (getToolBar() == 0) mToolbar = null else mToolbar = findViewById(getToolBar())
-        mImmersionBar = ImmersionBar.with(this)
-        if (mToolbar == null) {
-            mImmersionBar!!.statusBarDarkFont(false, 0.2f)
-                .keyboardEnable(true)
-        } else {
-            mImmersionBar!!.titleBar(mToolbar)
-                .statusBarDarkFont(false, 0.2f)
+    var isImmersionBarEnabled = true
 
+    open fun initStatusBar() {
+        mImmersionBar = ImmersionBar.with(this)
+        if (isImmersionBarEnabled) {
+            mImmersionBar!!.statusBarDarkFont(true) ////状态栏字体是深色，不写默认为亮色
+                .keyboardEnable(false) // //解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
+                .fitsLayoutOverlapEnable(true)
+                .navigationBarColor(R.color.white) //导航栏颜色，不写默认黑色
+                //.navigationBarColor(R.color.white) //导航栏颜色，不写默认黑色
+                .init()
+        } else {
+            mImmersionBar!!
+                .keyboardEnable(false) // //解决软键盘与底部输入框冲突问题，默认为false，还有一个重载方法，可以指定软键盘mode
+                .statusBarDarkFont(true) ////状态栏字体是深色，不写默认为亮色
+                .fitsSystemWindows(true) //解决布局和状态栏重叠
+                .fitsLayoutOverlapEnable(false)
+                .navigationBarColor(R.color.white) //导航栏颜色，不写默认黑色
+                .statusBarColor(R.color.white) //状态栏颜色，不写默认透明色
+                .init()
         }
-        mImmersionBar!!.init()
     }
 
 

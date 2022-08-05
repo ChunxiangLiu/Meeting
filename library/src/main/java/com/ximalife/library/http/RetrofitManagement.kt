@@ -85,7 +85,7 @@ class RetrofitManagement private constructor() {
             })
             interceptor.level = HttpLoggingInterceptor.Level.BODY
             builder.addInterceptor(interceptor)
-            builder.addInterceptor(ChuckInterceptor(BaseAppApplication.context))
+            builder.addInterceptor(ChuckInterceptor(BaseAppApplication.getInstance()))
         }
 
 

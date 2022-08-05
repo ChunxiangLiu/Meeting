@@ -9,9 +9,12 @@ import android.text.method.LinkMovementMethod
 import android.view.Gravity
 import android.view.WindowManager
 import com.jy.meeting.R
+import com.jy.meeting.common.GuidActivity
+import com.jy.meeting.common.RegisterOrLoginActivity
 import com.jy.meeting.databinding.DialogRegisterOrLoginBinding
 import com.jy.meeting.view.utils.MyTextUtils
 import com.ximalife.library.util.DisplayUtil
+import com.ximalife.library.util.StartActivityUtil
 
 class RegisterOrLoginDialog : Dialog {
     lateinit var binding: DialogRegisterOrLoginBinding
@@ -33,6 +36,7 @@ class RegisterOrLoginDialog : Dialog {
         setCanceledOnTouchOutside(false)
 
         binding.tvRegisterOrlogin.setOnClickListener {
+            StartActivityUtil.startActivity(context, GuidActivity::class.java)
 
         }
 
@@ -41,13 +45,13 @@ class RegisterOrLoginDialog : Dialog {
             context,
             str,
             0,
-             context.getString(R.string.user_ys)
+            context.getString(R.string.user_ys)
         )
         MyTextUtils().setTxtSpan(
             context,
             str,
             1,
-             context.getString(R.string.user_xy)
+            context.getString(R.string.user_xy)
         )
         binding.tvTvRegisterOrloginText.setText(str)
         binding.tvTvRegisterOrloginText.setMovementMethod(LinkMovementMethod.getInstance())//不设置 没有点击事件

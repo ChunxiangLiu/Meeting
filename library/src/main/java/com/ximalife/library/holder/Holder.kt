@@ -9,7 +9,7 @@ import com.ximalife.library.view.ToastUtil
 
 class ContextHolder {
     companion object {
-        val context: Context by lazy { BaseAppApplication.context }
+        val context: Context by lazy { BaseAppApplication.getInstance() }
     }
 }
 

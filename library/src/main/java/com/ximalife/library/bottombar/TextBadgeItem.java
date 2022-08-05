@@ -261,7 +261,7 @@ public class TextBadgeItem extends BadgeItem<TextBadgeItem> {
      */
     private int getRadius(Context context) {
         if (radius < 0) {
-            return context.getResources().getDimensionPixelSize(R.dimen.badge_corner_radius);
+            return context.getResources().getDimensionPixelSize(R.dimen.margin_10);
         } else {
             return radius;
         }

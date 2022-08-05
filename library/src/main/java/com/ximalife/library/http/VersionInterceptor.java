@@ -34,8 +34,8 @@ public class VersionInterceptor implements Interceptor {
                 .addHeader("User-Agent", userAgent)
                 .header("X-Response-Behavior", "V3")
                 .header("Device-Type",deviceType)
-                .header("Authorization", TextUtils.isEmpty(auth)?TokenUtils.getAuth(BaseAppApplication.Companion.getContext()):auth)
-                .header("X-Access-Token",TokenUtils.getUserToken(BaseAppApplication.Companion.getContext()))
+                .header("Authorization", TextUtils.isEmpty(auth)?TokenUtils.getAuth(BaseAppApplication.Companion.getInstance()):auth)
+                .header("X-Access-Token",TokenUtils.getUserToken(BaseAppApplication.Companion.getInstance()))
                 //目前版本号写死，后面要从gradle文件获取
                 .header("App-Version",appVersion)
                 .build();

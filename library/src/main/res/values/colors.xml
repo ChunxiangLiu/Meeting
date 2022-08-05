@@ -2,29 +2,14 @@
 <resources>
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
-    <color name="welcome_bg_top">#FFF2F9FF</color>
-    <color name="text_color_666">#666666</color>
-    <color name="text_color_999">#999999</color>
-    <color name="color_2C8DF8">#FF2C8DF8</color>
-    <color name="home_viewpage_bg">#FFF5F6FA</color>
-    <color name="text_color_ccc">#cccccc</color>
-    <color name="camera_bg">#E632373C</color>
-    <color name="text_color_333">#333333</color>
-    <color name="image_crop_333">#333333</color>
-    <color name="text_color_000">#4D000000</color>
-    <color name="text_color_80000">#CC000000</color>
-    <color name="dialog_changelanguage_bg">#fff5f6fa</color>
-    <color name="transparent">#00000000</color>
-    <color name="text_color_eee">#FFEEEEEE</color>
-    <color name="min_vip_bg">#FFFFDE9F</color>
-    <color name="min_vip_open">#FF352318</color>
-    <color name="delete_bg">#FFF45555</color>
-    <color name="item_speack_bg">#FFEFF6FF</color>
-    <color name="voice_recognition_failed_color">#999999</color>
-    <color name="translucent_white">#80FFFFFF</color>
 
     <color name="color_333333">#333333</color>
     <color name="color_FC566A">#FC566A</color>
+    <color name="color_F1F1F1">#F1F1F1</color>
+    <color name="color_999999">#999999</color>
+    <color name="color_2C8DF8">#2C8DF8</color>
+    <color name="color_FFA7B2">#FFA7B2</color>
+    <color name="color_EEEEEE">#eeeeee</color>
 
 
 </resources>

@@ -3,5 +3,30 @@
     <string name="cancel">取消</string>
     <string name="queding">确定</string>
 
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+    <string name="splash_text">HI,\n
+                                交友从聊天开始,\n
+                                拥有从此刻开始，\n
+                                真心是最深情的表白，\n
+                                欢迎来到~~平台！
+    </string>
+
+    <string name="dailog_register_or_login_bt_text">注册/登录</string>
+    <string name="dailog_register_or_login_bt_tips">注册/登录即表示已阅读并同意用户协议和隐私政策</string>
+    <string name="user_xy">用户协议</string>
+    <string name="user_ys">隐私政策</string>
+
+    <string name="str_register_title">手机注册</string>
+    <string name="str_register_num_tips">请输入手机号</string>
+    <string name="str_register_yzm_tips">获取验证码</string>
+    <string name="str_register_tips">原手机号不再使用？</string>
+    <string name="str_register_tips_">找回账号</string>
+
+    <string name="str_num_error_tips">请输入正确的手机号</string>
+    <string name="str_guid_next">下一步</string>
+
 
 </resources>

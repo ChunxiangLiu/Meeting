@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/common_head_title" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_68"
+        android:text="@string/str_register_title"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_24" />
+
+
+    <com.ximalife.library.view.ClearEditText
+        android:id="@+id/et_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_14"
+        android:layout_marginRight="@dimen/margin_30"
+        android:background="@drawable/drawable_radius_10"
+        android:hint="@string/str_register_num_tips"
+        android:inputType="number"
+        android:paddingLeft="@dimen/margin_14"
+        android:paddingTop="@dimen/margin_18"
+        android:paddingBottom="@dimen/margin_18"
+        android:textColorHint="@color/color_999999"
+        android:textSize="@dimen/margin_18" />
+
+    <TextView
+        android:id="@+id/register_or_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_25"
+        android:layout_marginRight="@dimen/margin_30"
+        android:background="@mipmap/ic_register_bt_unselect"
+        android:gravity="center_horizontal"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16"
+        android:text="@string/str_register_yzm_tips"
+        android:textColor="@color/white"
+        android:textSize="@dimen/margin_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_24"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_register_tips"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/margin_12" />
+
+        <TextView
+            android:id="@+id/tv_forget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableRight="@mipmap/ic_register_right"
+            android:drawablePadding="@dimen/margin_4"
+            android:text="@string/str_register_tips_"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_12" />
+    </LinearLayout>
+
+</LinearLayout>
