@@ -46,8 +46,8 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: (LayoutInflat
             if (intent != null) {
                 var action = intent.getAction();
                 if (intent.hasCategory(Intent.CATEGORY_LAUNCHER) && Intent.ACTION_MAIN.equals(action)) {
-                    finish();
-                    return;
+                    finish()
+                    return
                 }
             }
         }
@@ -65,6 +65,7 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: (LayoutInflat
         initStatusBar()
         initViewModelEvent()
         initView()
+        initListener()
 //        initSoftKeyboard()
     }
 
@@ -256,9 +257,12 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflat
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView(savedInstanceState)
-        initData()
-        //注册事件
         EvenBusUtil.instance().register(this)
+        initData()
+        initListener()
+        //注册事件
+
+
     }
 
     //获取布局文件
@@ -268,6 +272,7 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflat
     protected abstract fun initView(savedInstanceState: Bundle?)
     open fun initView() {}
     open fun initData() {}
+    open fun initListener() {}
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

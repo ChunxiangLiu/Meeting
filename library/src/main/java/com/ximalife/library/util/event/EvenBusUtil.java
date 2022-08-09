@@ -69,6 +69,25 @@ public class EvenBusUtil {
     /**
      * 发送普通事件
      */
+    public void postEventMesage(String mesgAction,int count){
+        EventMessage message = new EventMessage(mesgAction);
+        message.setData(count);
+        EventBus.getDefault().post(message);
+    }
+
+
+    /**
+     * 发送普通事件
+     */
+    public void postEventMesage(String mesgAction,Object count){
+        EventMessage message = new EventMessage(mesgAction);
+        message.setData(count);
+        EventBus.getDefault().post(message);
+    }
+
+    /**
+     * 发送普通事件
+     */
     public void postEventMesage(EventMessage eventMessage) {
         EventBus.getDefault().post(eventMessage);
     }

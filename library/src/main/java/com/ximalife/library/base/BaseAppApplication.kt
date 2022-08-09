@@ -11,10 +11,10 @@ abstract class BaseAppApplication : Application() {
     }
 
     companion object {
-        var application: BaseAppApplication? = null
+        lateinit var application: BaseAppApplication
 
         fun getInstance(): BaseAppApplication {
-            return application!!
+            return application
         }
 
 

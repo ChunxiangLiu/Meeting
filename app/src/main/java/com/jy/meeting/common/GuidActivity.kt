@@ -1,5 +1,6 @@
 package com.jy.meeting.common
 
+import android.text.TextUtils
 import android.util.Log
 import android.view.KeyEvent
 import android.widget.ImageView
@@ -13,13 +14,26 @@ import com.jy.meeting.common.fragment.GuideFragmntThree
 import com.jy.meeting.common.fragment.GuideFragmntTwo
 import com.jy.meeting.databinding.ActivityGuidBinding
 import com.ximalife.library.base.BaseActivity
-import kotlin.collections.ArrayList
+import com.ximalife.library.http.model.GuideMessageModel
+import com.ximalife.library.util.event.EventBusCode
+import com.ximalife.library.util.event.EventMessage
+import org.greenrobot.eventbus.Subscribe
+import org.greenrobot.eventbus.ThreadMode
+
 
 class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::inflate) {
 
     var fragmentList = ArrayList<Fragment>()
 
     lateinit var imageViews: Array<ImageView?>
+
+    lateinit var myViewPageAdapter: XFragmentAdapter
+
+    var userNikeName = ""
+
+    var index = 0
+
+    var currentItem = 0;
 
     override fun initView() {
         fragmentList.add(GuideFragmntOne())
@@ -28,6 +42,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size
+        binding.viewPager.setNoScroll(false)
         initPointer()
     }
 
@@ -67,24 +82,25 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
      * 绑定pager 和 Fragment
      */
     private fun setupWithPager(list: List<Fragment>, title: Array<String>?) {
-        val myViewPageAdapter = XFragmentAdapter(supportFragmentManager, list, title)
+        myViewPageAdapter = XFragmentAdapter(supportFragmentManager, list, title)
         binding.viewPager.setAdapter(myViewPageAdapter)
     }
 
 
     override fun initListener() {
         //ViewPager滑动Pager监听
-        binding.viewPager.addOnPageChangeListener(object :OnPageChangeListener{
+        binding.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
                 positionOffsetPixels: Int
             ) {
-                Log.i("viewpage","onPageScrolled : "+position);
+                Log.i("viewpage", "onPageScrolled : " + position);
 
             }
+
             override fun onPageSelected(position: Int) {
-                Log.i("viewpage","onPageSelected : "+position);
+                Log.i("viewpage", "onPageSelected : " + position);
 
                 for (i in imageViews.indices) {
                     imageViews.get(position)!!
@@ -97,10 +113,25 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
             }
 
             override fun onPageScrollStateChanged(state: Int) {
-                Log.i("viewpage","onPageScrollStateChanged : "+state);
+                Log.i("viewpage", "onPageScrollStateChanged : " + state);
             }
 
         })
+
+
+        binding.tvNext.setOnClickListener {
+            if (myViewPageAdapter != null) {
+                if (currentItem == 0) {
+                    if (!TextUtils.isEmpty(userNikeName)) {
+                        binding.viewPager.setCurrentItem(currentItem + 1)
+                        myViewPageAdapter.notifyDataSetChanged()
+                    }
+                }
+
+            }
+
+
+        }
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
@@ -109,6 +140,28 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
             true
         } else {
             super.dispatchKeyEvent(event)
+        }
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEventMessageDel(message: EventMessage<String>?) {
+        if (message == null) return
+        when (message.getAction()) {
+            EventBusCode.FRAGMNET_GUIDE_ONE -> {
+                var date = message.getData() as GuideMessageModel
+                userNikeName = date.text
+                currentItem = date.position
+                when (date.position) {
+                    0 -> {
+                        if (!TextUtils.isEmpty(date.text)) {
+                            binding.tvNext.setBackgroundResource(R.mipmap.ic_dialog_register_or_login_bt_bg)
+                        } else {
+                            binding.tvNext.setBackgroundResource(R.drawable.drawable_guid_bt_bg)
+                        }
+                    }
+                }
+
+            }
         }
     }
 

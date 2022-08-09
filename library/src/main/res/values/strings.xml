@@ -27,6 +27,9 @@
 
     <string name="str_num_error_tips">请输入正确的手机号</string>
     <string name="str_guid_next">下一步</string>
+    <string name="str_guid_one_title">首先，起个靓酷的名字吧</string>
+    <string name="str_guid_one_name_tips">设置昵称（0~8字符）</string>
+    <string name="str_guid_one_random_name">随机昵称</string>
 
 
 </resources>
