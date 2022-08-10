@@ -30,6 +30,14 @@
     <string name="str_guid_one_title">首先，起个靓酷的名字吧</string>
     <string name="str_guid_one_name_tips">设置昵称（0~8字符）</string>
     <string name="str_guid_one_random_name">随机昵称</string>
+    <string name="str_guid_two_text_tips">我是</string>
+    <string name="str_guid_two_text_age">年龄</string>
+    <string name="str_guid_two_text_age_tips">1岁</string>
+    <string name="str_guid_two_text_height">身高</string>
+    <string name="str_guid_two_text_height_tips">180cm</string>
+    <string name="str_guid_two_gender_age_tips">*性别、年龄注册完成后不可修改</string>
+    <string name="str_man">男人</string>
+    <string name="str_woman">女人</string>
 
 
 </resources>

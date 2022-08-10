@@ -3,6 +3,7 @@ package com.jy.meeting.common
 import android.text.TextUtils
 import android.util.Log
 import android.view.KeyEvent
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
@@ -125,6 +126,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
                     if (!TextUtils.isEmpty(userNikeName)) {
                         binding.viewPager.setCurrentItem(currentItem + 1)
                         myViewPageAdapter.notifyDataSetChanged()
+                        binding.tvGenderAgeTips.visibility = View.VISIBLE
                     }
                 }
 
