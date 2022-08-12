@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_126"
-        android:text="@string/str_educate"
+        android:text="@string/str_job_title"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/margin_20" />
 
@@ -19,36 +19,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_30"
-        android:text="@string/str_education"
+        android:text="@string/str_job"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/margin_16" />
 
 
     <TextView
-        android:id="@+id/tv_education"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_30"
-        android:layout_marginTop="@dimen/margin_30"
-        android:layout_marginRight="@dimen/margin_30"
-        android:background="@drawable/drawable_education_bt_bg"
-        android:drawableRight="@mipmap/ic_education_down"
-        android:padding="@dimen/margin_15"
-        android:text="@string/str_select"
-        android:textColor="@color/color_999999"
-        android:textSize="@dimen/margin_16" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/margin_30"
-        android:layout_marginTop="@dimen/margin_30"
-        android:text="@string/str_school"
-        android:textColor="@color/color_333333"
-        android:textSize="@dimen/margin_16" />
-
-    <TextView
-        android:id="@+id/tv_user_school"
+        android:id="@+id/tv_user_job"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
@@ -58,7 +35,30 @@
         android:drawableLeft="@mipmap/ic_school_search"
         android:drawablePadding="@dimen/dp_4"
         android:padding="@dimen/margin_15"
-        android:text="@string/str_school_tips"
+        android:text="@string/str_job_tips"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/margin_16" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:text="@string/str_income"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_16" />
+
+    <TextView
+        android:id="@+id/tv_income"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:layout_marginRight="@dimen/margin_30"
+        android:background="@drawable/drawable_education_bt_bg"
+        android:drawableRight="@mipmap/ic_education_down"
+        android:padding="@dimen/margin_15"
+        android:text="@string/str_select"
         android:textColor="@color/color_999999"
         android:textSize="@dimen/margin_16" />
 

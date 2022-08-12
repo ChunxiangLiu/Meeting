@@ -8,6 +8,8 @@ public class Constant {
 
     public static final String BUNDLE = "bundle";
 
+    public static final String ISLOGIN = "islogin";
+
 
 }
 

@@ -8,12 +8,15 @@ import android.text.SpannableString
 import android.text.method.LinkMovementMethod
 import android.view.Gravity
 import android.view.WindowManager
+import com.airbnb.lottie.animation.content.Content
 import com.jy.meeting.R
 import com.jy.meeting.common.GuidActivity
 import com.jy.meeting.common.RegisterOrLoginActivity
 import com.jy.meeting.databinding.DialogRegisterOrLoginBinding
 import com.jy.meeting.view.utils.MyTextUtils
+import com.ximalife.library.Constant
 import com.ximalife.library.util.DisplayUtil
+import com.ximalife.library.util.SPUtils
 import com.ximalife.library.util.StartActivityUtil
 
 class RegisterOrLoginDialog : Dialog {
@@ -37,6 +40,8 @@ class RegisterOrLoginDialog : Dialog {
 
         binding.tvRegisterOrlogin.setOnClickListener {
             StartActivityUtil.startActivity(context, GuidActivity::class.java)
+
+            SPUtils.put(context, Constant.ISLOGIN, true)
 
         }
 

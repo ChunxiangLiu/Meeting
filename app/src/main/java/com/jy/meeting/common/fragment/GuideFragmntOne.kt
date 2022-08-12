@@ -2,7 +2,6 @@ package com.jy.meeting.common.fragment
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
 import com.jy.meeting.databinding.FragmentGuideOneBinding
 import com.ximalife.library.base.BaseFragment

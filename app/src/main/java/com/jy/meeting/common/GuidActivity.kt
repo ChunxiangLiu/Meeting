@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import com.jy.meeting.R
 import com.jy.meeting.common.adapter.XFragmentAdapter
+import com.jy.meeting.common.fragment.GuideFragmentFour
 import com.jy.meeting.common.fragment.GuideFragmntOne
 import com.jy.meeting.common.fragment.GuideFragmntThree
 import com.jy.meeting.common.fragment.GuideFragmntTwo
@@ -40,6 +41,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
         fragmentList.add(GuideFragmntOne())
         fragmentList.add(GuideFragmntTwo())
         fragmentList.add(GuideFragmntThree())
+        fragmentList.add(GuideFragmentFour())
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size
@@ -122,18 +124,34 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
         binding.tvNext.setOnClickListener {
             if (myViewPageAdapter != null) {
+                if (currentItem > fragmentList.size) return@setOnClickListener
                 if (currentItem == 0) {
                     if (!TextUtils.isEmpty(userNikeName)) {
-                        binding.viewPager.setCurrentItem(currentItem + 1)
-                        myViewPageAdapter.notifyDataSetChanged()
                         binding.tvGenderAgeTips.visibility = View.VISIBLE
                     }
+                } else if (currentItem == 1) {
+                    binding.tvGenderAgeTips.visibility = View.GONE
                 }
-
+                binding.viewPager.setCurrentItem(currentItem + 1)
+                myViewPageAdapter.notifyDataSetChanged()
+                currentItem++
             }
-
-
         }
+
+        binding.ivTop.setOnClickListener {
+            if (myViewPageAdapter != null) {
+                if (currentItem == 0 || currentItem > fragmentList.size) return@setOnClickListener
+                if (currentItem == 1) {
+                    binding.tvGenderAgeTips.visibility = View.GONE
+                } else if (currentItem == 2) {
+                    binding.tvGenderAgeTips.visibility = View.VISIBLE
+                }
+                binding.viewPager.setCurrentItem(currentItem - 1)
+                myViewPageAdapter.notifyDataSetChanged()
+                currentItem--
+            }
+        }
+
     }
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
@@ -153,16 +171,15 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
                 var date = message.getData() as GuideMessageModel
                 userNikeName = date.text
                 currentItem = date.position
-                when (date.position) {
-                    0 -> {
-                        if (!TextUtils.isEmpty(date.text)) {
-                            binding.tvNext.setBackgroundResource(R.mipmap.ic_dialog_register_or_login_bt_bg)
-                        } else {
-                            binding.tvNext.setBackgroundResource(R.drawable.drawable_guid_bt_bg)
-                        }
-                    }
-                }
-
+//                when (date.position) {
+//                    0 -> {
+//                        if (!TextUtils.isEmpty(date.text)) {
+//                            binding.tvNext.setBackgroundResource(R.mipmap.ic_dialog_register_or_login_bt_bg)
+//                        } else {
+//                            binding.tvNext.setBackgroundResource(R.drawable.drawable_guid_bt_bg)
+//                        }
+//                    }
+//                }
             }
         }
     }

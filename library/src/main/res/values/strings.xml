@@ -32,12 +32,23 @@
     <string name="str_guid_one_random_name">随机昵称</string>
     <string name="str_guid_two_text_tips">我是</string>
     <string name="str_guid_two_text_age">年龄</string>
-    <string name="str_guid_two_text_age_tips">1岁</string>
+    <string name="str_guid_two_text_age_tips">岁</string>
     <string name="str_guid_two_text_height">身高</string>
-    <string name="str_guid_two_text_height_tips">180cm</string>
+    <string name="str_guid_two_text_height_tips">cm</string>
     <string name="str_guid_two_gender_age_tips">*性别、年龄注册完成后不可修改</string>
     <string name="str_man">男人</string>
     <string name="str_woman">女人</string>
+    <string name="str_educate">教育信息</string>
+    <string name="str_education">学历</string>
+    <string name="str_school">学校</string>
+    <string name="str_school_tips">请输入学校名称</string>
+    <string name="str_select">请选择</string>
+    <string name="str_sure">确定</string>
+    <string name="str_cancel">取消</string>
+    <string name="str_job_title">我是做什么的</string>
+    <string name="str_job">职业</string>
+    <string name="str_job_tips">请输入职业名称</string>
+    <string name="str_income">收入</string>
 
 
 </resources>

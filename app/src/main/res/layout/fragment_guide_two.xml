@@ -21,20 +21,19 @@
         android:layout_marginRight="@dimen/margin_30">
 
         <FrameLayout
+            android:id="@+id/fl_gender_man_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/margin_30"
             android:layout_weight="1">
 
 
-            <RadioButton
+            <ImageView
+                android:id="@+id/iv_gender_man"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:background="@drawable/drawalbe_gender_man_selector"
-                android:button="@null"
-                android:checked="true"
-                android:clickable="true" />
+                android:src="@mipmap/ic_man_select" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -49,19 +48,19 @@
 
 
         <FrameLayout
+            android:id="@+id/fl_gender_woman_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/margin_30"
             android:layout_weight="1">
 
 
-            <RadioButton
+            <ImageView
+                android:id="@+id/iv_gender_woman"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:adjustViewBounds="true"
-                android:background="@drawable/drawalbe_gender_woman_selector"
-                android:button="@null"
-                android:clickable="true" />
+                android:src="@mipmap/ic_woman_unselect" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -102,6 +101,7 @@
 
 
         <SeekBar
+            android:id="@+id/seekbar_user_age"
             style="@style/CustomSeekbarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -138,6 +138,7 @@
 
 
         <SeekBar
+            android:id="@+id/seekbar_user_height"
             style="@style/CustomSeekbarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

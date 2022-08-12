@@ -257,12 +257,10 @@ abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflat
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView(savedInstanceState)
-        EvenBusUtil.instance().register(this)
         initData()
         initListener()
         //注册事件
-
-
+        EvenBusUtil.instance().register(this)
     }
 
     //获取布局文件

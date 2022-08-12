@@ -21,6 +21,7 @@
     <dimen name="margin_126">126dp</dimen>
     <dimen name="margin_180">180dp</dimen>
     <dimen name="margin_20">20dp</dimen>
+    <dimen name="margin_5">5dp</dimen>
 
 
 </resources>
