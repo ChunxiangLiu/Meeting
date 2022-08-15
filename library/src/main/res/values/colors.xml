@@ -12,6 +12,7 @@
     <color name="color_EEEEEE">#eeeeee</color>
     <color name="color_DDDDDD">#dddddd</color>
     <color name="color_FC546B">#FC546B</color>
-
-
+    <color name="color_FB5C67">#FB5C67</color>
+    <color name="color_FB6065">#FB6065</color>
+    <color name="transparent">#00000000</color>
 </resources>

@@ -2,40 +2,40 @@
 <resources>
 
     <declare-styleable name="XTabLayout">
-        <attr name="xTabIndicatorHeight" format="dimension"/>
-        <attr name="xTabIndicatorWidth" format="dimension"/>
-        <attr name="xTabIndicatorColor" format="color"/>
-        <attr name="xTabPadding" format="dimension"/>
-        <attr name="xTabPaddingStart" format="dimension"/>
-        <attr name="xTabPaddingTop" format="dimension"/>
-        <attr name="xTabPaddingEnd" format="dimension"/>
-        <attr name="xTabPaddingBottom" format="dimension"/>
-        <attr name="xTabTextAppearance" format="reference"/>
-        <attr name="xTabTextColor" format="color"/>
-        <attr name="xTabSelectedTextColor" format="color"/>
-        <attr name="xTabMinWidth" format="dimension"/>
-        <attr name="xTabMaxWidth" format="dimension"/>
-        <attr name="xTabBackgroundColor" format="reference|color"/>
-        <attr name="xTabSelectedBackgroundColor" format="reference|color"/>
-        <attr name="xTabContentStart" format="dimension"/>
+        <attr name="xTabIndicatorHeight" format="dimension" />
+        <attr name="xTabIndicatorWidth" format="dimension" />
+        <attr name="xTabIndicatorColor" format="color" />
+        <attr name="xTabPadding" format="dimension" />
+        <attr name="xTabPaddingStart" format="dimension" />
+        <attr name="xTabPaddingTop" format="dimension" />
+        <attr name="xTabPaddingEnd" format="dimension" />
+        <attr name="xTabPaddingBottom" format="dimension" />
+        <attr name="xTabTextAppearance" format="reference" />
+        <attr name="xTabTextColor" format="color" />
+        <attr name="xTabSelectedTextColor" format="color" />
+        <attr name="xTabMinWidth" format="dimension" />
+        <attr name="xTabMaxWidth" format="dimension" />
+        <attr name="xTabBackgroundColor" format="reference|color" />
+        <attr name="xTabSelectedBackgroundColor" format="reference|color" />
+        <attr name="xTabContentStart" format="dimension" />
         <attr name="xTabMode">
             <enum name="scrollable" value="0x00000000" />
             <enum name="fixed" value="0x00000001" />
         </attr>
-        <attr name="xTabGravity" format="integer"/>
+        <attr name="xTabGravity" format="integer" />
 
-        <attr name="xTabTextSize" format="dimension"/>
-        <attr name="xTabTextBold" format="boolean"/>
-        <attr name="xTabSelectedTextSize" format="dimension"/>
-        <attr name="xTabTextSelectedBold" format="boolean"/>
-        <attr name="xTabDisplayNum" format="integer"/>
-        <attr name="xTabTextAllCaps" format="boolean"/>
+        <attr name="xTabTextSize" format="dimension" />
+        <attr name="xTabTextBold" format="boolean" />
+        <attr name="xTabSelectedTextSize" format="dimension" />
+        <attr name="xTabTextSelectedBold" format="boolean" />
+        <attr name="xTabDisplayNum" format="integer" />
+        <attr name="xTabTextAllCaps" format="boolean" />
 
 
-        <attr name="xTabDividerHeight" format="dimension"/>
-        <attr name="xTabDividerWidth" format="dimension"/>
-        <attr name="xTabDividerWidthWidthText" format="boolean"/>
-        <attr name="xTabDividerColor" format="color"/>
+        <attr name="xTabDividerHeight" format="dimension" />
+        <attr name="xTabDividerWidth" format="dimension" />
+        <attr name="xTabDividerWidthWidthText" format="boolean" />
+        <attr name="xTabDividerColor" format="color" />
         <attr name="xTabDividerGravity">
             <enum name="top" value="0x00000000" />
             <enum name="center" value="0x00000001" />
@@ -44,11 +44,11 @@
     </declare-styleable>
 
     <declare-styleable name="Custom_Round_Image_View">
-        <attr name="radius" format="dimension"/>
-        <attr name="left_top_radius" format="dimension"/>
-        <attr name="right_top_radius" format="dimension"/>
-        <attr name="right_bottom_radius" format="dimension"/>
-        <attr name="left_bottom_radius" format="dimension"/>
+        <attr name="radius" format="dimension" />
+        <attr name="left_top_radius" format="dimension" />
+        <attr name="right_top_radius" format="dimension" />
+        <attr name="right_bottom_radius" format="dimension" />
+        <attr name="left_bottom_radius" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="customTextView">
@@ -70,4 +70,67 @@
         <attr name="textNormalSolidColor" format="color" />
         <attr name="textIsSelected" format="boolean" />
     </declare-styleable>
+
+
+    <!--线（进度条）宽度-->
+    <attr name="lineHeight" format="dimension" />
+    <!--字的大小 100元-->
+    <attr name="textSize" format="dimension" />
+    <!--字的颜色 100元-->
+    <attr name="textColor" format="color" />
+    <!--两个游标内部 线（进度条）的颜色-->
+    <attr name="inColor" format="color" />
+    <!--两个游标外部 线（进度条）的颜色-->
+    <attr name="outColor" format="color" />
+    <!--左边图标的图片-->
+    <attr name="imageLow" format="reference" />
+    <!--右边图标 的图片-->
+    <attr name="imageBig" format="reference" />
+    <!--游标 图片宽度-->
+    <attr name="imagewidth" format="dimension" />
+    <!--游标 图片高度-->
+    <attr name="imageheight" format="dimension" />
+    <!--是否有刻度线-->
+    <attr name="hasRule" format="boolean" />
+    <!--刻度的颜色-->
+    <attr name="ruleColor" format="color" />
+    <!--刻度上边的字 的颜色-->
+    <attr name="ruleTextColor" format="color" />
+    <!--单位 元-->
+    <attr name="unit" format="string" />
+    <!--单位份数-->
+    <attr name="equal" format="integer" />
+    <!--刻度单位 $-->
+    <attr name="ruleUnit" format="string" />
+    <!--刻度上边文字的size-->
+    <attr name="ruleTextSize" format="dimension" />
+    <!--刻度线的高度-->
+    <attr name="ruleLineHeight" format="dimension" />
+    <!--选择器的最大值-->
+    <attr name="bigValue" format="integer" />
+    <!--选择器的最小值-->
+    <attr name="smallValue" format="integer" />
+    <declare-styleable name="DoubleSlideSeekBar">
+        <attr name="lineHeight" />
+        <attr name="textSize" />
+        <attr name="textColor" />
+        <attr name="inColor" />
+        <attr name="outColor" />
+        <attr name="imageLow" />
+        <attr name="imageBig" />
+        <attr name="imagewidth" />
+        <attr name="imageheight" />
+        <attr name="hasRule" />
+        <attr name="ruleColor" />
+        <attr name="ruleTextColor" />
+        <attr name="unit" />
+        <attr name="equal" />
+        <attr name="ruleUnit" />
+        <attr name="ruleTextSize" />
+        <attr name="ruleLineHeight" />
+        <attr name="bigValue" />
+        <attr name="smallValue" />
+    </declare-styleable>
+
+
 </resources>

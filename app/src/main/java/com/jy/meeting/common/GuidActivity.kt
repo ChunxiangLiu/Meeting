@@ -1,5 +1,6 @@
 package com.jy.meeting.common
 
+import android.Manifest
 import android.text.TextUtils
 import android.util.Log
 import android.view.KeyEvent
@@ -8,12 +9,11 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
+import com.hjq.permissions.OnPermissionCallback
+import com.hjq.permissions.XXPermissions
 import com.jy.meeting.R
 import com.jy.meeting.common.adapter.XFragmentAdapter
-import com.jy.meeting.common.fragment.GuideFragmentFour
-import com.jy.meeting.common.fragment.GuideFragmntOne
-import com.jy.meeting.common.fragment.GuideFragmntThree
-import com.jy.meeting.common.fragment.GuideFragmntTwo
+import com.jy.meeting.common.fragment.*
 import com.jy.meeting.databinding.ActivityGuidBinding
 import com.ximalife.library.base.BaseActivity
 import com.ximalife.library.http.model.GuideMessageModel
@@ -35,13 +35,23 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
     var index = 0
 
-    var currentItem = 0;
+    var currentItem = 0
+    var isAgreePermissionFlag = false
+
+
+    private val mPermissionList = arrayOf(
+        Manifest.permission.WRITE_EXTERNAL_STORAGE,
+        Manifest.permission.READ_EXTERNAL_STORAGE
+    )
 
     override fun initView() {
         fragmentList.add(GuideFragmntOne())
         fragmentList.add(GuideFragmntTwo())
         fragmentList.add(GuideFragmntThree())
         fragmentList.add(GuideFragmentFour())
+        fragmentList.add(GuideFragmentFive())
+        fragmentList.add(GuideFragmentSix())
+        fragmentList.add(GuideFragmentSeven())
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size
@@ -104,7 +114,6 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
             override fun onPageSelected(position: Int) {
                 Log.i("viewpage", "onPageSelected : " + position);
-
                 for (i in imageViews.indices) {
                     imageViews.get(position)!!
                         .setBackgroundResource(R.drawable.drawable_guide_point_selected)
@@ -131,6 +140,36 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
                     }
                 } else if (currentItem == 1) {
                     binding.tvGenderAgeTips.visibility = View.GONE
+                } else if (currentItem == 6) {
+                    XXPermissions.with(this).permission(mPermissionList)
+                        .request(object : OnPermissionCallback {
+                            override fun onGranted(
+                                permissions: MutableList<String>?,
+                                all: Boolean
+                            ) {
+                                if (all) {
+                                    isAgreePermissionFlag = true
+                                    showToast("11111")
+                                } else {
+                                    showToast(resources.getString(R.string.permission_fail_tips))
+                                }
+
+                            }
+
+                            override fun onDenied(
+                                permissions: MutableList<String>?,
+                                never: Boolean
+                            ) {
+                                if (never) {
+                                    showToast(resources.getString(R.string.permission_fail_tips))
+                                }
+
+                            }
+
+                        })
+                    if (!isAgreePermissionFlag) {
+                        return@setOnClickListener
+                    }
                 }
                 binding.viewPager.setCurrentItem(currentItem + 1)
                 myViewPageAdapter.notifyDataSetChanged()

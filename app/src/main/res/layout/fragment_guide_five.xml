@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_126"
-        android:text="@string/str_job_title"
+        android:text="@string/str_there_title"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/margin_20" />
 
@@ -19,23 +19,22 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_30"
-        android:text="@string/str_job"
+        android:text="@string/str_job_there"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/margin_16" />
 
 
     <TextView
-        android:id="@+id/tv_user_job"
+        android:id="@+id/tv_job_there"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_30"
         android:layout_marginRight="@dimen/margin_30"
         android:background="@drawable/drawable_education_bt_bg"
-        android:drawableLeft="@mipmap/ic_school_search"
-        android:drawablePadding="@dimen/dp_4"
+        android:drawableRight="@mipmap/ic_education_down"
         android:padding="@dimen/margin_15"
-        android:text="@string/str_job_tips"
+        android:text="@string/str_select"
         android:textColor="@color/color_999999"
         android:textSize="@dimen/margin_16" />
 
@@ -44,12 +43,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"
         android:layout_marginTop="@dimen/margin_30"
-        android:text="@string/str_income"
+        android:text="@string/str_hometown"
         android:textColor="@color/color_333333"
         android:textSize="@dimen/margin_16" />
 
     <TextView
-        android:id="@+id/tv_income"
+        android:id="@+id/tv_hometown"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/margin_30"

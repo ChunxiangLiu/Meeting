@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-<!--    <string-array name="common_text_date">-->
-<!--        <item>@string/English</item>//英语-->
-<!--        <item>@string/Russian</item>//俄语-->
-<!--        <item>@string/French</item>//法语-->
-<!--        <item>@string/German</item>//德语-->
-<!--        <item>@string/Japanese</item>//日语-->
-<!--        <item>@string/Korean</item>//朝鲜语-->
-<!--        <item>@string/Portuguese</item>//葡萄牙语-->
-<!--        <item>@string/Spanish</item>//西班牙语-->
-<!--        <item>@string/Ukrainian</item>//乌克兰语-->
-<!--        <item>@string/Chinese</item>//中文-->
-<!--        <item>@string/Chineses</item>//中文繁体-->
-<!--    </string-array>-->
+    <string-array name="item_education_text">
+        <item>大专以下</item>
+        <item>大专</item>
+        <item>本科</item>
+        <item>硕士</item>
+        <item>博士</item>
+    </string-array>
 
-
-
-
+    <string-array name="item_love_text">
+        <item>找个知心朋友，谈一场不分手的恋爱</item>
+        <item>来场闪婚如何啊</item>
+        <item>认真谈恋爱，等缘分到了就结婚</item>
+        <item>没考虑清楚</item>
+    </string-array>
 
 
 </resources>

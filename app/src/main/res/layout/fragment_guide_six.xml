@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_126"
+        android:text="@string/str_there_title"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_20" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:layout_marginRight="@dimen/margin_30">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_want_love"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_16" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:drawableRight="@mipmap/ic_education_down"
+            android:drawablePadding="@dimen/margin_4"
+            android:text="@string/str_love_permission"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/margin_14" />
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_20"
+        android:layout_marginRight="@dimen/margin_30"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:spanCount="3" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:layout_marginRight="@dimen/margin_30">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_love_gender"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_16" />
+
+        <TextView
+            android:id="@+id/user_love_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="~"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_16" />
+
+    </RelativeLayout>
+
+
+    <com.jy.meeting.view.DoubleSlideSeekBar
+        android:id="@+id/dbar_user_age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_10"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="@dimen/margin_10"
+        app:bigValue="40"
+        app:equal="10"
+        app:hasRule="true"
+        app:imageBig="@mipmap/ic_thumb"
+        app:imageLow="@mipmap/ic_thumb"
+        app:imageheight="20dp"
+        app:imagewidth="20dp"
+        app:inColor="@color/color_FC546B"
+        app:lineHeight="20dp"
+        app:outColor="@color/color_F1F1F1"
+        app:smallValue="10"
+        app:textColor="@color/transparent"
+        app:textSize="12sp" />
+
+
+</LinearLayout>

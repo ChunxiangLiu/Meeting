@@ -154,6 +154,9 @@ dependencies {
     api 'com.contrarywind:Android-PickerView:4.1.9'
 
 
+    api 'com.github.getActivity:XXPermissions:10.8'
+
+
 
 }
 repositories {

@@ -49,6 +49,19 @@
     <string name="str_job">职业</string>
     <string name="str_job_tips">请输入职业名称</string>
     <string name="str_income">收入</string>
+    <string name="str_there_title">我在那里</string>
+    <string name="str_job_there">工作居住地</string>
+    <string name="str_hometown">我的家乡</string>
+    <string name="str_about_love">关于恋爱</string>
+    <string name="str_want_love">我想要的恋爱</string>
+    <string name="str_love_permission">所有人可见</string>
+    <string name="str_love_gender">我期待的他/她</string>
+    <string name="str_avatar">我的头像</string>
+    <string name="str_avatar_tips">选择好看照片做为自头像展示吧，记得露脸哦~</string>
+    <string name="str_avatar_camer">上传自己的形象照</string>
+
+
+    <string name="permission_fail_tips">被永久拒绝授权，请手动授予权限</string>
 
 
 </resources>
