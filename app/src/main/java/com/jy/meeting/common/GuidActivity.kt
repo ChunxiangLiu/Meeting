@@ -15,6 +15,7 @@ import com.jy.meeting.R
 import com.jy.meeting.common.adapter.XFragmentAdapter
 import com.jy.meeting.common.fragment.*
 import com.jy.meeting.databinding.ActivityGuidBinding
+import com.jy.meeting.view.dialog.AvatarTipsDialog
 import com.ximalife.library.base.BaseActivity
 import com.ximalife.library.http.model.GuideMessageModel
 import com.ximalife.library.util.event.EventBusCode
@@ -36,13 +37,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
     var index = 0
 
     var currentItem = 0
-    var isAgreePermissionFlag = false
 
-
-    private val mPermissionList = arrayOf(
-        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-        Manifest.permission.READ_EXTERNAL_STORAGE
-    )
 
     override fun initView() {
         fragmentList.add(GuideFragmntOne())
@@ -52,6 +47,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
         fragmentList.add(GuideFragmentFive())
         fragmentList.add(GuideFragmentSix())
         fragmentList.add(GuideFragmentSeven())
+        fragmentList.add(GuideFragmentEight())
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size
@@ -140,36 +136,6 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
                     }
                 } else if (currentItem == 1) {
                     binding.tvGenderAgeTips.visibility = View.GONE
-                } else if (currentItem == 6) {
-                    XXPermissions.with(this).permission(mPermissionList)
-                        .request(object : OnPermissionCallback {
-                            override fun onGranted(
-                                permissions: MutableList<String>?,
-                                all: Boolean
-                            ) {
-                                if (all) {
-                                    isAgreePermissionFlag = true
-                                    showToast("11111")
-                                } else {
-                                    showToast(resources.getString(R.string.permission_fail_tips))
-                                }
-
-                            }
-
-                            override fun onDenied(
-                                permissions: MutableList<String>?,
-                                never: Boolean
-                            ) {
-                                if (never) {
-                                    showToast(resources.getString(R.string.permission_fail_tips))
-                                }
-
-                            }
-
-                        })
-                    if (!isAgreePermissionFlag) {
-                        return@setOnClickListener
-                    }
                 }
                 binding.viewPager.setCurrentItem(currentItem + 1)
                 myViewPageAdapter.notifyDataSetChanged()
@@ -184,6 +150,8 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
                     binding.tvGenderAgeTips.visibility = View.GONE
                 } else if (currentItem == 2) {
                     binding.tvGenderAgeTips.visibility = View.VISIBLE
+                } else if (currentItem == 7) {
+                    binding.ivGuidBg.setImageResource(R.mipmap.ic_guide_bg_two)
                 }
                 binding.viewPager.setCurrentItem(currentItem - 1)
                 myViewPageAdapter.notifyDataSetChanged()

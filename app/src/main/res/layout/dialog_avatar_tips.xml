@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/drawable_white_radius_top_15"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/iv_dialog_claose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_14"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_14"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/margin_8"
+        android:src="@mipmap/ic_education_dialog_claose" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/str_dialog_avatar_title"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_16" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_avatar_woman" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:adjustViewBounds="true"
+            android:src="@mipmap/ic_avatar_sure" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_14"
+        android:text="@string/str_dialog_avatar_tips"
+        android:textColor="@color/color_FC556B"
+        android:textSize="@dimen/margin_16" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_50"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="@dimen/margin_50"
+            android:layout_height="@dimen/margin_0_5"
+            android:layout_gravity="center"
+            android:background="@color/color_999999" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/str_dialog_avatar_camer_tips"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/margin_10" />
+
+        <View
+            android:layout_width="@dimen/margin_50"
+            android:layout_height="@dimen/margin_0_5"
+            android:layout_gravity="center"
+            android:background="@color/color_999999" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_20"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="@dimen/margin_80"
+            android:layout_height="@dimen/margin_110">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_avatar_one" />
+
+            <com.ximalife.library.view.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_5"
+                android:paddingBottom="@dimen/margin_5"
+                android:text="@string/str_dialog_avatar_fail_one"
+                android:textColor="@color/white"
+                android:textSize="@dimen/margin_14"
+                app:textLeftBottomRadius="@dimen/margin_10"
+                app:textNormalSolidColor="@color/color_4c000000"
+                app:textRightBottomRadius="@dimen/margin_10" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/margin_80"
+            android:layout_height="@dimen/margin_110"
+            android:layout_marginLeft="@dimen/margin_12"
+            android:layout_marginRight="@dimen/margin_12">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_avatar_two" />
+
+            <com.ximalife.library.view.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_5"
+                android:paddingBottom="@dimen/margin_5"
+                android:text="@string/str_dialog_avatar_fail_two"
+                android:textColor="@color/white"
+                android:textSize="@dimen/margin_14"
+                app:textLeftBottomRadius="@dimen/margin_10"
+                app:textNormalSolidColor="@color/color_4c000000"
+                app:textRightBottomRadius="@dimen/margin_10" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="@dimen/margin_80"
+            android:layout_height="@dimen/margin_110">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitXY"
+                android:src="@mipmap/ic_avatar_three" />
+
+            <com.ximalife.library.view.CustomTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="center"
+                android:paddingTop="@dimen/margin_5"
+                android:paddingBottom="@dimen/margin_5"
+                android:text="@string/str_dialog_avatar_fail_three"
+                android:textColor="@color/white"
+                android:textSize="@dimen/margin_14"
+                app:textLeftBottomRadius="@dimen/margin_10"
+                app:textNormalSolidColor="@color/color_4c000000"
+                app:textRightBottomRadius="@dimen/margin_10" />
+
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+    <com.ximalife.library.view.CustomTextView
+        android:id="@+id/ct_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_30"
+        android:paddingLeft="@dimen/margin_54"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingRight="@dimen/margin_54"
+        android:paddingBottom="@dimen/margin_16"
+        android:text="@string/str_dialog_avatar_pictrue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/margin_16"
+        app:textNormalSolidColor="@color/color_FC546B"
+        app:textRadius="@dimen/margin_24" />
+
+    <TextView
+        android:id="@+id/ct_camer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_14"
+        android:layout_marginBottom="@dimen/margin_50"
+        android:text="@string/str_dialog_avatar_camer"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_16" />
+
+
+</LinearLayout>

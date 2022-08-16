@@ -59,6 +59,17 @@
     <string name="str_avatar">我的头像</string>
     <string name="str_avatar_tips">选择好看照片做为自头像展示吧，记得露脸哦~</string>
     <string name="str_avatar_camer">上传自己的形象照</string>
+    <string name="str_dialog_avatar_title">如何展示形象照？</string>
+    <string name="str_dialog_avatar_tips">五官清晰本人照</string>
+    <string name="str_dialog_avatar_camer_tips">以下照片不能通过审核</string>
+    <string name="str_dialog_avatar_fail_one">看不清脸</string>
+    <string name="str_dialog_avatar_fail_two">挡住眼睛</string>
+    <string name="str_dialog_avatar_fail_three">非人物</string>
+    <string name="str_dialog_avatar_pictrue">明白了，立马去选择</string>
+    <string name="str_dialog_avatar_camer">没有照片？现在拍一张~</string>
+    <string name="str_footprint">我最近的足迹</string>
+    <string name="str_footprint_tips">选几张照片来展示生活中的我。\n照片越丰富，就越容易收到喜欢~</string>
+    <string name="str_jump">跳过</string>
 
 
     <string name="permission_fail_tips">被永久拒绝授权，请手动授予权限</string>
