@@ -64,6 +64,18 @@ object SettingUtils {
         textView?.setCompoundDrawables(drawable, null, null, null) // 设置到控件中
     }
 
+    open fun setTopImg(
+        context: Context,
+        textView: TextView?,
+        drawableId: Int
+    ) {
+        var drawable: Drawable? = null
+        drawable = context.resources.getDrawable(drawableId) // 找到资源图片
+        // 这一步必须要做，否则不会显示。
+        drawable.setBounds(0, 0, drawable.minimumWidth, drawable.minimumHeight) // 设置图片宽高
+        textView?.setCompoundDrawables(null, drawable, null, null) // 设置到控件中
+    }
+
     /**
      * 在文字的左方设置图片
      */
@@ -112,9 +124,8 @@ object SettingUtils {
     }
 
 
-
-    fun setTextCopyValue(context: Context, text: String){
-        val cm =  context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+    fun setTextCopyValue(context: Context, text: String) {
+        val cm = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
         cm.setPrimaryClip(
             ClipData.newPlainText(
                 null,
@@ -122,9 +133,6 @@ object SettingUtils {
             )
         )
     }
-
-
-
 
 
 }

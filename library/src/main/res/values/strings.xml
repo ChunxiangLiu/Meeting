@@ -70,6 +70,9 @@
     <string name="str_footprint">我最近的足迹</string>
     <string name="str_footprint_tips">选几张照片来展示生活中的我。\n照片越丰富，就越容易收到喜欢~</string>
     <string name="str_jump">跳过</string>
+    <string name="str_dialog_footprint_tips">如何展示自己？</string>
+    <string name="str_dialog_select_pictrue_title">最近项目</string>
+    <string name="str_dialog_select_pictrue_tips">切换相册</string>
 
 
     <string name="permission_fail_tips">被永久拒绝授权，请手动授予权限</string>

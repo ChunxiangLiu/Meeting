@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawable_white_radius_top_15"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <ImageView
+        android:id="@+id/iv_dialog_claose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_14"
+        android:layout_marginTop="@dimen/margin_10"
+        android:layout_marginRight="@dimen/margin_14"
+        android:adjustViewBounds="true"
+        android:padding="@dimen/margin_8"
+        android:src="@mipmap/ic_education_dialog_claose" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/str_dialog_footprint_tips"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_16" />
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="60dp"
+        android:overScrollMode="never"
+        android:layout_marginTop="@dimen/margin_30"
+        android:clipChildren="false" />
+
+    <com.ximalife.library.view.CustomTextView
+        android:id="@+id/ct_item_text"
+        android:layout_width="@dimen/margin_180"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_24"
+        android:gravity="center"
+        android:paddingTop="@dimen/margin_14"
+        android:paddingBottom="@dimen/margin_14"
+        android:text="11111111111111"
+        android:textColor="@color/color_FC556B"
+        android:textSize="@dimen/margin_14"
+        app:textNormalSolidColor="@color/color_FFA7B2"
+        app:textRadius="@dimen/dp_10" />
+
+
+    <com.ximalife.library.view.CustomTextView
+        android:id="@+id/ct_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_40"
+        android:layout_marginBottom="@dimen/margin_50"
+        android:paddingLeft="@dimen/margin_54"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingRight="@dimen/margin_54"
+        android:paddingBottom="@dimen/margin_16"
+        android:text="@string/str_dialog_avatar_pictrue"
+        android:textColor="@color/white"
+        android:textSize="@dimen/margin_16"
+        app:textNormalSolidColor="@color/color_FC546B"
+        app:textRadius="@dimen/margin_24" />
+
+
+</LinearLayout>
