@@ -23,6 +23,8 @@
         <item name="android:windowIsTranslucent">true</item>
     </style>
 
+
+
     <declare-styleable name="NiceImageView">
         <attr name="is_circle" format="boolean" />
         <attr name="is_cover_src" format="boolean" />

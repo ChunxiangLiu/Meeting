@@ -1,18 +1,22 @@
 package com.jy.meeting.view.dialog
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.provider.MediaStore
-import android.text.TextUtils
 import android.view.Gravity
 import android.view.WindowManager
 import com.jy.meeting.R
+import com.jy.meeting.common.adapter.BitmapAdapter
 import com.jy.meeting.databinding.DialogSelectPictrueBinding
-import com.ximalife.library.http.model.ImagineBean
-import com.ximalife.library.http.model.TopTitleBean
+import com.phz.photopicker.config.ImagePickerConstant
+import com.phz.photopicker.config.SelectMode
+import com.phz.photopicker.intent.PickImageIntent
+import com.phz.photopicker.intent.PreViewImageIntent
+import com.phz.photopicker.util.UsageUtil
+import com.ximalife.library.Constant
 import com.ximalife.library.util.DisplayUtil
-import java.io.File
 import java.util.*
 
 class SelectPictrueDialog : Dialog {
@@ -21,10 +25,28 @@ class SelectPictrueDialog : Dialog {
 
     private lateinit var clickListener: onDialogItemClick
 
-    var mediaMap: MutableMap<String, ArrayList<ImagineBean>> =
-        HashMap<String, ArrayList<ImagineBean>>()
+    /**
+     * 点击GridView时点击的位置和路径，这2个默认值是0和{@link Constant.PLUS}
+     */
+    private val gridViewItemClickPosition = 0
+    private val gridViewItemClickPath = ""
 
-    var topList: ArrayList<TopTitleBean> = ArrayList<TopTitleBean>()
+
+    /**
+     * 允许上传照片最大数量
+     */
+    private val INT_MAXSIZE_IMG = 9
+
+    private val REQUEST_CAMERA_CODE = 10
+    private val REQUEST_PREVIEW_CODE = 20
+
+    lateinit var adapter: BitmapAdapter
+
+
+    /**
+     * 图片路径，和graidview的填充器有关 (可能包含plus加号)
+     */
+    private val imagePathsList = java.util.ArrayList<String>()
 
 
     constructor(context: Context) : this(context, 0)
@@ -51,106 +73,95 @@ class SelectPictrueDialog : Dialog {
     }
 
     private fun initData() {
-        getMediaList()
 
-        if (mediaMap != null && mediaMap.size > 0) {
 
-        }
+        //获取全部的图片
+        toPickPhoto(gridViewItemClickPosition, gridViewItemClickPath)
 
-    }
+        val cols = UsageUtil.getNumColumn(context)
+        binding.myGridView.setNumColumns(cols)
+        imagePathsList.add(Constant.PLUS)
 
-    //获取相册所有图片
-    private fun getMediaList() {
-        //获取视频文件
-        val cursor = context.contentResolver.query(
-            MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
-            null,
-            null,
-            null,
-            null
-        )
-        while (cursor!!.moveToNext()) {
-            val videoInfo = ImagineBean()
-            videoInfo.mediaType = 1
-            videoInfo.filePath =
-                cursor.getString(cursor.getColumnIndex(MediaStore.Video.Media.DATA))
-            videoInfo.name =
-                cursor.getString(cursor.getColumnIndexOrThrow(MediaStore.Video.Media.TITLE))
-            videoInfo.playtime =
-                cursor.getLong(cursor.getColumnIndex(MediaStore.Video.Media.DURATION))
-            videoInfo.size = cursor.getLong(cursor.getColumnIndex(MediaStore.Video.Media.SIZE))
-            val file = File(videoInfo.filePath)
-            videoInfo.time = file.lastModified()
-            try {
-                videoInfo.rootName = file.getParentFile().getName()
-            } catch (e: Exception) {
-                videoInfo.rootName = "未知名称"
-            }
-            if (mediaMap.containsKey("相机胶卷")) {
-                mediaMap["相机胶卷"]!!.add(videoInfo)
-            } else {
-                val list = ArrayList<ImagineBean>()
-                list.add(videoInfo)
-                mediaMap["相机胶卷"] = list
-            }
-            if (mediaMap.containsKey(videoInfo.rootName)) {
-                mediaMap[videoInfo.rootName]!!.add(videoInfo)
-            } else {
-                val list = ArrayList<ImagineBean>()
-                list.add(videoInfo)
-                mediaMap[videoInfo.rootName] = list
-            }
-            // LogUtil.show("videoInfo==" + videoInfo.toString());
-        }
-        cursor.close()
-        //获取图片文件
-        val cursor2 = context.contentResolver.query(
-            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-            null,
-            null,
-            null,
-            null
-        )
-        while (cursor2!!.moveToNext()) {
-            val videoInfo = ImagineBean()
-            videoInfo.mediaType = 2
-            videoInfo.filePath =
-                cursor2.getString(cursor2.getColumnIndex(MediaStore.Images.Media.DATA))
-            videoInfo.name =
-                cursor2.getString(cursor2.getColumnIndexOrThrow(MediaStore.Images.Media.TITLE))
-            videoInfo.size = cursor2.getLong(cursor2.getColumnIndex(MediaStore.Images.Media.SIZE))
-            val file = File(videoInfo.filePath)
-            videoInfo.time = file.lastModified()
-            if (file.getParentFile() != null) {
-                videoInfo.rootName = file.getParentFile().getName()
-            } else {
-                videoInfo.rootName = ""
-            }
-            if (mediaMap.containsKey("相机胶卷")) {
-                mediaMap["相机胶卷"]!!.add(videoInfo)
-            } else {
-                val list = ArrayList<ImagineBean>()
-                list.add(videoInfo)
-                mediaMap["相机胶卷"] = list
-            }
-            if (mediaMap.containsKey(videoInfo.rootName)) {
-                mediaMap[videoInfo.rootName]!!.add(videoInfo)
-            } else {
-                val list = ArrayList<ImagineBean>()
-                list.add(videoInfo)
-                mediaMap[videoInfo.rootName] = list
-            }
-        }
-        cursor2.close()
-        for ((key, veList) in mediaMap) {
-            if (TextUtils.equals("相机胶卷", key)) {
-                topList.add(0, TopTitleBean(veList[0].filePath, key, veList.size))
-            } else {
-                topList.add(TopTitleBean(veList[0].filePath, key, veList.size))
-            }
-        }
+        var adapter = BitmapAdapter(imagePathsList, context)
+        binding.myGridView.setAdapter(adapter)
+
 
     }
+
+
+    /**
+     * 跳转到图片选择器
+     */
+    private fun toPickPhoto(position: Int, path: String) {
+        if (Constant.PLUS.equals(path)) {
+            val intent = PickImageIntent(context)
+            //设置为多选模式
+            intent.setSelectModel(SelectMode.MULTI)
+            // 是否拍照
+            intent.setIsShowCamera(false)
+            //设置最多选择照片数量
+            if (imagePathsList.size > 0 && imagePathsList.size < INT_MAXSIZE_IMG + 1) {
+                // 最多选择照片数量
+                intent.setSelectedCount(INT_MAXSIZE_IMG + 1 - imagePathsList.size)
+            } else {
+                intent.setSelectedCount(0)
+            }
+            // 已选中的照片地址， 用于回显选中状态
+            ownerActivity!!.startActivityForResult(intent, REQUEST_CAMERA_CODE)
+        } else {
+            val intent = PreViewImageIntent(context)
+            intent.setCurrentItem(position)
+            if (imagePathsList.contains(Constant.PLUS)) {
+                imagePathsList.remove(Constant.PLUS)
+            }
+            intent.setPhotoPaths(imagePathsList)
+            ownerActivity!!.startActivityForResult(intent, REQUEST_PREVIEW_CODE)
+        }
+    }
+
+
+    fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == Activity.RESULT_OK) {
+            when (requestCode) {
+                REQUEST_CAMERA_CODE -> if (data != null) {
+                    val list = data.getStringArrayListExtra(ImagePickerConstant.EXTRA_RESULT)
+                    updateGridView(list)
+                }
+                REQUEST_PREVIEW_CODE -> if (data != null) {
+                    val ListExtra = data.getStringArrayListExtra(ImagePickerConstant.EXTRA_RESULT)
+                    if (imagePathsList != null) {
+                        imagePathsList.clear()
+                    }
+                    imagePathsList.addAll(ListExtra)
+                    if (imagePathsList.size < INT_MAXSIZE_IMG) {
+                        imagePathsList.add(Constant.PLUS)
+                    }
+
+                    adapter = BitmapAdapter(imagePathsList, context)
+                    binding.myGridView.setAdapter(adapter)
+                }
+            }
+        }
+    }
+
+    /**
+     * 更新界面
+     *
+     * @param list 选择照片的路径列表
+     */
+    private fun updateGridView(list: ArrayList<String>) {
+        if (imagePathsList.contains(Constant.PLUS)) {
+            imagePathsList.remove(Constant.PLUS)
+        }
+        imagePathsList.addAll(list)
+        /** 小于INT_MAXSIZE_IMG时显示添加图片item(也就是plus) */
+        if (imagePathsList.size < INT_MAXSIZE_IMG) {
+            imagePathsList.add(Constant.PLUS)
+        }
+        adapter = BitmapAdapter(imagePathsList, context)
+        binding.myGridView.setAdapter(adapter)
+    }
+
 
     private fun initListener() {
         binding.ivDialogClaose.setOnClickListener {
@@ -172,6 +183,3 @@ class SelectPictrueDialog : Dialog {
 
 }
 
-private operator fun <K, V> MutableMap<K, V>.set(rootName: K?, value: V) {
-
-}

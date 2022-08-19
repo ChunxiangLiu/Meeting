@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="@dimen/margin_30"
     android:background="@drawable/drawable_white_radius_top_15"
     android:clipChildren="false"
     android:orientation="vertical"
@@ -57,11 +58,21 @@
             android:textColor="@color/color_333333"
             android:textSize="@dimen/margin_12" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+        <!--        <androidx.recyclerview.widget.RecyclerView-->
+        <!--            android:id="@+id/mRecyclerView"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            android:layout_weight="1" />-->
+
+        <com.phz.photopicker.view.MyGridView
+            android:id="@+id/myGridView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_15"
+            android:layout_marginVertical="@dimen/margin_10"
+            android:numColumns="3"
+            android:verticalSpacing="@dimen/margin_6" />
+
     </LinearLayout>
 
     <RelativeLayout

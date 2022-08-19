@@ -10,6 +10,8 @@ public class Constant {
 
     public static final String ISLOGIN = "islogin";
 
+    public static final String PLUS = "plus";
+
 
 }
 

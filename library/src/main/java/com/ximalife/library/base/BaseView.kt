@@ -218,6 +218,8 @@ abstract class BaseActivity<VB : ViewBinding>(private val inflate: (LayoutInflat
     open fun getContentView(): ViewGroup {
         return findViewById(Window.ID_ANDROID_CONTENT)
     }
+
+
 }
 
 abstract class BaseFragment<VB : ViewBinding>(private val inflate: (LayoutInflater) -> VB) :

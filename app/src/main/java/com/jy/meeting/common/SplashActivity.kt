@@ -3,6 +3,7 @@ package com.jy.meeting.common
 import android.os.Handler
 import com.jy.meeting.databinding.ActivitySplashBinding
 import com.jy.meeting.view.dialog.RegisterOrLoginDialog
+import com.jy.meeting.view.dialog.SelectPictrueDialog
 import com.ximalife.library.Constant
 import com.ximalife.library.base.BaseActivity
 import com.ximalife.library.util.SPUtils
@@ -15,7 +16,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
     override fun initView() {
         if (SPUtils.get(this, Constant.ISLOGIN, false) as Boolean) {
-            StartActivityUtil.startActivity(this, GuidActivity::class.java)
+
+            StartActivityUtil.startActivity(this, SelectPictrueActivity::class.java)
+
+//            StartActivityUtil.startActivity(this, GuidActivity::class.java)
         } else {
             setShowRegisterOrLoginDialog()
         }
