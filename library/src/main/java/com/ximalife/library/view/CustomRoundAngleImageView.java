@@ -16,7 +16,7 @@ import com.ximalife.library.R;
 public class CustomRoundAngleImageView extends AppCompatImageView {
     float width, height;
 
-    private int defaultRadius = 0;
+    private int defaultRadius = 10;
     private int radius;
     private int leftTopRadius;
     private int rightTopRadius;

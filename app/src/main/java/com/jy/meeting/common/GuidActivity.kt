@@ -40,6 +40,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
 
     override fun initView() {
+        fragmentList.add(GuideFragmentEight())
         fragmentList.add(GuideFragmntOne())
         fragmentList.add(GuideFragmntTwo())
         fragmentList.add(GuideFragmntThree())
@@ -47,7 +48,6 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
         fragmentList.add(GuideFragmentFive())
         fragmentList.add(GuideFragmentSix())
         fragmentList.add(GuideFragmentSeven())
-        fragmentList.add(GuideFragmentEight())
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size
@@ -102,7 +102,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int
+                positionOffsetPixels: Int,
             ) {
                 Log.i("viewpage", "onPageScrolled : " + position);
 
@@ -130,12 +130,15 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
         binding.tvNext.setOnClickListener {
             if (myViewPageAdapter != null) {
                 if (currentItem > fragmentList.size) return@setOnClickListener
+                binding.ivGuidBg.setImageResource(R.mipmap.ic_guid_bg)
                 if (currentItem == 0) {
                     if (!TextUtils.isEmpty(userNikeName)) {
                         binding.tvGenderAgeTips.visibility = View.VISIBLE
                     }
                 } else if (currentItem == 1) {
                     binding.tvGenderAgeTips.visibility = View.GONE
+                } else if (currentItem == 7) {
+                    binding.ivGuidBg.setImageResource(R.mipmap.ic_guide_bg_two)
                 }
                 binding.viewPager.setCurrentItem(currentItem + 1)
                 myViewPageAdapter.notifyDataSetChanged()
@@ -146,6 +149,8 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
         binding.ivTop.setOnClickListener {
             if (myViewPageAdapter != null) {
                 if (currentItem == 0 || currentItem > fragmentList.size) return@setOnClickListener
+                binding.ivGuidBg.setImageResource(R.mipmap.ic_guid_bg)
+
                 if (currentItem == 1) {
                     binding.tvGenderAgeTips.visibility = View.GONE
                 } else if (currentItem == 2) {

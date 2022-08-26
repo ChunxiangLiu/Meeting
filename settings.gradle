@@ -1,4 +1,4 @@
-include ':photopicker'
+include ':selectPhoto'
 include ':library'
 include ':app'
 rootProject.name = "My Application"

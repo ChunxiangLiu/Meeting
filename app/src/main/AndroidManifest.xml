@@ -35,10 +35,13 @@
             android:name=".common.GuidActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".common.SelectPictrueActivity"
+        <activity
+            android:name=".common.SelectPictrueActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/base_dialog_style"
-            />
+            android:theme="@style/base_dialog_style" />
+        <activity
+            android:name=".TestActvity"
+            android:screenOrientation="portrait" />
 
         <!-- 表示当前项目已经适配了分区存储特性 -->
         <meta-data
