@@ -22,6 +22,8 @@ import com.ximalife.library.base.BaseFragment
 import com.ximalife.library.http.model.TxtWithPhotoModel
 import com.ximalife.library.util.SettingUtils
 import com.ximalife.library.view.CustomRoundAngleImageView
+import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.math.log
 
 class GuideFragmentEight :
@@ -33,14 +35,18 @@ class GuideFragmentEight :
 
     var itemClick = false
 
-    var txtWithPhotoModelList = ArrayList<TxtWithPhotoModel>()//选择照片之前的集合
+    var txtWithPhotoModelList = mutableListOf<TxtWithPhotoModel>()//选择照片之前的集合
 
     lateinit var footPrintTipsDialog: FootPrintTipsDialog
 
     lateinit var pathList: java.util.ArrayList<String>//保存选择后图片的集合
 
     var isAddPhotoFlag = false
-    var isAddPhotoPosition = 0
+    var isAddPhotoPosition = 0//添加照片索引
+
+    var slectPhotoModelList = ArrayList<String>()//用来做处理的集合
+
+    var isRemorePhotoPosition = 0// 移除照片索引
 
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -110,13 +116,31 @@ class GuideFragmentEight :
             //在这里获取到选择的图片
 
             pathList = data!!.getStringArrayListExtra(Constant.PICTRUELIST)
+
+
+
+
+
             if (pathList != null && pathList.size > 0) {
+
                 for (i in 0 until pathList.size) {
-                    if (isAddPhotoFlag) {
-                        txtWithPhotoModelList.get(isAddPhotoPosition).imgPath = pathList.get(i)
+
+                    if (isAddPhotoFlag && isAddPhotoPosition <= txtWithPhotoModelList.size) {
+
+                        var txtWithPhotoModel = TxtWithPhotoModel()
+                        txtWithPhotoModel.imgPath = pathList.get(i)
+                        txtWithPhotoModel.time = System.currentTimeMillis()
+
+                        txtWithPhotoModelList.set(isAddPhotoPosition, txtWithPhotoModel)
+
+                        isAddPhotoPosition++
                     } else {
                         txtWithPhotoModelList.get(i).imgPath = pathList.get(i)
+                        txtWithPhotoModelList.get(i).time = System.currentTimeMillis()
                     }
+
+                    //累计选择的个数
+                    slectPhotoModelList.add(pathList.get(i))
                 }
                 binding.mRecyclerView.visibility = View.GONE
                 binding.photoRecyclerView.visibility = View.VISIBLE
@@ -127,13 +151,14 @@ class GuideFragmentEight :
         }
     }
 
-    private fun setSelectPictrueView(txtWithPhotoModelList: ArrayList<TxtWithPhotoModel>) {
+    private fun setSelectPictrueView(txtWithPhotoModelList: MutableList<TxtWithPhotoModel>) {
         var adapter = object : CommonBaseRVAdapter<TxtWithPhotoModel>(R.layout.item_select_pictrue,
             txtWithPhotoModelList) {
             override fun convertData(helper: BaseViewHolder, item: TxtWithPhotoModel) {
                 var itemPrctrueLayout = helper.getView<FrameLayout>(R.id.item_prctrue_layout)
                 var flNodataLayout = helper.getView<FrameLayout>(R.id.fl_nodata_layout)
                 var ivItemImg = helper.getView<CustomRoundAngleImageView>(R.id.iv_item_img)
+                var ivItemRemove = helper.getView<ImageView>(R.id.iv_item_remove)
                 if (!TextUtils.isEmpty(item.imgPath)) {
                     itemPrctrueLayout.visibility = View.VISIBLE
                     flNodataLayout.visibility = View.GONE
@@ -152,6 +177,14 @@ class GuideFragmentEight :
                         addSelectPictrue(helper.position)
                     }
                 }
+
+                ivItemRemove.setOnClickListener {
+                    slectPhotoModelList.remove(item.imgPath)
+                    var txtWithPhotoModel = TxtWithPhotoModel()
+                    txtWithPhotoModel.imgPath = ""
+                    txtWithPhotoModelList.set(helper.position, txtWithPhotoModel)
+                    notifyDataSetChanged()
+                }
             }
         }
         binding.photoRecyclerView.adapter = adapter
@@ -165,7 +198,7 @@ class GuideFragmentEight :
         val intent = Intent(context, SelectPictrueActivity::class.java)
 
         intent.putExtra(Constant.MAXSLECTEDNUM,
-            Constant.SELECT_PICTRUE_DEFAULT_MAX_NUM - pathList.size)
+            Constant.SELECT_PICTRUE_DEFAULT_MAX_NUM - slectPhotoModelList.size)
         startActivityForResult(intent, 100)
 
     }

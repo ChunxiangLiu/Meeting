@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#CC000000"
+                android:padding="10dp">
+
+    <TextView
+            android:id="@+id/num"
+            android:textSize="14sp"
+            android:textColor="#fff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="4dp"
+            android:text="最多选择8个素材"/>
+
+    <TextView
+            android:id="@+id/daoru_btn"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/daoru_sty2"
+            android:paddingLeft="20dp"
+            android:paddingTop="4dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="4dp"
+            android:text="导入"
+            android:textColor="#50ffffff"/>
+
+    <com.jy.selectphoto.view.ImportBottomRycView
+            android:id="@+id/bottom_rcyview"
+            android:layout_marginTop="10dp"
+            android:layout_below="@+id/daoru_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"/>
+</RelativeLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout"
+    android:layout_width="68dp"
+    android:layout_height="60dp"
+    android:paddingRight="8dp">
+
+    <ImageView
+        android:id="@+id/vedio_iv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="#f2f2f2"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_all_document_empty" />
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:textSize="13sp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="3dp"
+        android:layout_marginBottom="1dp"
+        android:text="" />
+
+</RelativeLayout>

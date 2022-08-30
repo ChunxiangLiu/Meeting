@@ -1,6 +1,5 @@
 package com.jy.meeting.common
 
-import android.Manifest
 import android.text.TextUtils
 import android.util.Log
 import android.view.KeyEvent
@@ -9,13 +8,10 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
-import com.hjq.permissions.OnPermissionCallback
-import com.hjq.permissions.XXPermissions
 import com.jy.meeting.R
 import com.jy.meeting.common.adapter.XFragmentAdapter
 import com.jy.meeting.common.fragment.*
 import com.jy.meeting.databinding.ActivityGuidBinding
-import com.jy.meeting.view.dialog.AvatarTipsDialog
 import com.ximalife.library.base.BaseActivity
 import com.ximalife.library.http.model.GuideMessageModel
 import com.ximalife.library.util.event.EventBusCode

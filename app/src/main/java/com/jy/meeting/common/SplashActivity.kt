@@ -15,12 +15,12 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
 
     override fun initView() {
-        StartActivityUtil.startActivity(this, TestActvity::class.java)
-//        if (SPUtils.get(this, Constant.ISLOGIN, false) as Boolean) {
-////            StartActivityUtil.startActivity(this, GuidActivity::class.java)
-//        } else {
-//            setShowRegisterOrLoginDialog()
-//        }
+//        StartActivityUtil.startActivity(this, TestActvity::class.java)
+        if (SPUtils.get(this, Constant.ISLOGIN, false) as Boolean) {
+            StartActivityUtil.startActivity(this, GuidActivity::class.java)
+        } else {
+            setShowRegisterOrLoginDialog()
+        }
     }
 
 

@@ -4,4 +4,5 @@ class TxtWithPhotoModel {
     var Intro: String = ""
     var DrawableId = 0
     var imgPath = ""
+    var time: Long = 0
 }

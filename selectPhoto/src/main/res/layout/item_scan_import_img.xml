@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ImageView
+            android:id="@+id/vedio_iv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f2f2f2"
+            android:scaleType="centerCrop"/>
+
+    <RelativeLayout
+            android:id="@+id/layout_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="18dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/shap_import_sty"/>
+
+        <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="#fff"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:text=""/>
+
+        <TextView
+                android:id="@+id/select_tv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#993A82F9"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/white"
+                android:textSize="40sp"
+                android:textStyle="bold"
+                android:visibility="gone"/>
+
+        <ImageView
+                android:id="@+id/play_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:padding="10dp"
+                android:src="@mipmap/import_play_btn"/>
+    </RelativeLayout>
+</RelativeLayout>
