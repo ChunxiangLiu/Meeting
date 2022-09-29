@@ -74,6 +74,15 @@
     <string name="str_dialog_select_pictrue_title">最近项目</string>
     <string name="str_dialog_select_pictrue_tips">切换相册</string>
 
+    <string name="str_dialog_photo_explain_title">给每张照片添加你的说明呗</string>
+    <string name="str_dialog_photo_explain_hint">输入文字说明~（30字以内）</string>
+
+    <string name="str_introduce">介绍一下自己</string>
+    <string name="str_introduce_tips">2/3.美好的东西需要展示，如生活兴趣</string>
+    <string name="str_introduce_hint">请输入至少10个字</string>
+
+    <string name="str_select_me_title">选择符合自己的标签</string>
+    <string name="str_select_me_tips">最少3个，%s会帮你生成自我介绍</string>
 
     <string name="permission_fail_tips">被永久拒绝授权，请手动授予权限</string>
 

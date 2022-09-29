@@ -36,7 +36,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
 
     override fun initView() {
-        fragmentList.add(GuideFragmentEight())
+        fragmentList.add(GuideFragmentNine())
         fragmentList.add(GuideFragmntOne())
         fragmentList.add(GuideFragmntTwo())
         fragmentList.add(GuideFragmntThree())
@@ -44,6 +44,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
         fragmentList.add(GuideFragmentFive())
         fragmentList.add(GuideFragmentSix())
         fragmentList.add(GuideFragmentSeven())
+        fragmentList.add(GuideFragmentEight())
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size

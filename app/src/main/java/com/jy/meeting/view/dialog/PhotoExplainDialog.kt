@@ -16,22 +16,20 @@ import com.jy.meeting.common.adapter.FootPrintAdapter
 import com.jy.meeting.databinding.DialogAvatarTipsBinding
 import com.jy.meeting.databinding.DialogEducationSelectBinding
 import com.jy.meeting.databinding.DialogFootPrintBinding
+import com.jy.meeting.databinding.DialogPhotoExplainBinding
 import com.jy.meeting.view.utils.ZoomOutPageTransformer
 import com.ximalife.library.http.model.TxtWithPhotoModel
 import com.ximalife.library.util.DisplayUtil
+import java.lang.reflect.Array
 
 /**
- * 我的足迹 图片提示弹窗
+ * 我的足迹 图片描述弹窗
  */
-class FootPrintTipsDialog : Dialog {
-    lateinit var binding: DialogFootPrintBinding
+class PhotoExplainDialog : Dialog {
+    lateinit var binding: DialogPhotoExplainBinding
 
 
-    private lateinit var clickListener: onDialogItemClick
-
-
-    lateinit var textArray: TypedArray
-    lateinit var imaArray: TypedArray
+//    private lateinit var clickListener: onDialogItemClick
 
 
     var txtWithPhotoModelList = ArrayList<TxtWithPhotoModel>()
@@ -43,8 +41,17 @@ class FootPrintTipsDialog : Dialog {
 
     }
 
+    constructor(
+        context: Context,
+        txtWithPhotoModelLists: ArrayList<TxtWithPhotoModel>,
+    ) : super(context, R.style.dialog) {
+
+        this.txtWithPhotoModelList = txtWithPhotoModelLists
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
-        binding = DialogFootPrintBinding.inflate(layoutInflater)
+        binding = DialogPhotoExplainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         window!!.setLayout(
             DisplayUtil.getScreenWidth(context),
@@ -61,16 +68,6 @@ class FootPrintTipsDialog : Dialog {
     }
 
     private fun initData() {
-        txtWithPhotoModelList = ArrayList()
-        textArray = context.resources.obtainTypedArray(R.array.dialog_footprint_text)
-        imaArray = context.resources.obtainTypedArray(R.array.dialog_footprint_img)
-        for (i in 0 until textArray.length()) {
-            var txtWithPhotoModel = TxtWithPhotoModel()
-            txtWithPhotoModel.Intro = textArray.getString(i).toString()
-            txtWithPhotoModel.DrawableId = imaArray.getResourceId(i, 0)
-            txtWithPhotoModelList.add(txtWithPhotoModel)
-        }
-        binding.ctItemText.setText(txtWithPhotoModelList.get(0).Intro)
         binding.mViewPager.adapter = FootPrintAdapter(context, txtWithPhotoModelList)
 //        binding.mViewPager.pageMargin = 20
         binding.mViewPager.offscreenPageLimit = txtWithPhotoModelList.size
@@ -84,14 +81,12 @@ class FootPrintTipsDialog : Dialog {
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int
+                positionOffsetPixels: Int,
             ) {
             }
 
             override fun onPageSelected(position: Int) {
-                if (txtWithPhotoModelList != null && txtWithPhotoModelList.size > 0) {
-                    binding.ctItemText.setText(txtWithPhotoModelList.get(position).Intro)
-                }
+
             }
 
             override fun onPageScrollStateChanged(state: Int) {
@@ -100,33 +95,38 @@ class FootPrintTipsDialog : Dialog {
 
         })
 
+        //返回
         binding.ivDialogClaose.setOnClickListener {
-            if (clickListener != null) {
-                clickListener.onClickClose()
-            }
             dismiss()
         }
 
-        binding.ctPhoto.setOnClickListener {
-            if (clickListener != null) {
-                clickListener.onClickOK()
-            }
+        //跳过
+        binding.tvJump.setOnClickListener {
             dismiss()
         }
 
 
+//
+//        binding.ctPhoto.setOnClickListener {
+//            if (clickListener != null) {
+//                clickListener.onClickOK()
+//            }
+//            dismiss()
+//        }
+
+
     }
 
-    @JvmName("setClickListener1")
-    fun setClickListener(listener: onDialogItemClick) {
-        this.clickListener = listener
-    }
-
-
-    interface onDialogItemClick {
-        fun onClickOK()
-        fun onClickClose()
-    }
+//    @JvmName("setClickListener1")
+//    fun setClickListener(listener: onDialogItemClick) {
+//        this.clickListener = listener
+//    }
+//
+//
+//    interface onDialogItemClick {
+//        fun onClickOK()
+//        fun onClickClose()
+//    }
 
 
 }

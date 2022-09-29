@@ -1,9 +1,11 @@
 package com.jy.meeting.common.adapter;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -45,7 +47,14 @@ public class FootPrintAdapter extends PagerAdapter {
 
         CustomRoundAngleImageView imageView = view.findViewById(R.id.item_img);
 //        CustomTextView itemText = view.findViewById(R.id.ct_item_text);
-        Glide.with(mContext).load(mData.get(position).getDrawableId()).into(imageView);
+
+
+        if (!TextUtils.isEmpty(mData.get(position).getImgPath())) {
+            Glide.with(mContext).load(mData.get(position).getImgPath()).into(imageView);
+        } else {
+            Glide.with(mContext).load(mData.get(position).getDrawableId()).into(imageView);
+        }
+
 
 //        itemText.setText(mData.get(position).getIntro());
 

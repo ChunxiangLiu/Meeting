@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/drawable_white_radius_top_15"
+    android:clipChildren="false"
+    android:orientation="vertical"
+    tools:ignore="MissingDefaultResource">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_14"
+        android:layout_marginRight="@dimen/margin_15">
+
+        <ImageView
+            android:id="@+id/iv_dialog_claose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:adjustViewBounds="true"
+            android:padding="@dimen/margin_8"
+            android:src="@mipmap/ic_photo_explain_close" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="@string/str_dialog_photo_explain_title"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_16" />
+
+        <TextView
+            android:id="@+id/tv_jump"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin_5"
+            android:text="@string/str_jump"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_12" />
+
+
+    </RelativeLayout>
+
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginHorizontal="60dp"
+        android:layout_marginTop="@dimen/margin_30"
+        android:clipChildren="false"
+        android:overScrollMode="never" />
+
+    <com.ximalife.library.view.ClearEditText
+        android:id="@+id/editText"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_120"
+        android:layout_margin="@dimen/margin_30"
+        android:background="@drawable/drawable_f1f1f1_radius_15"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="top"
+        android:hint="@string/str_dialog_photo_explain_hint"
+        android:padding="@dimen/margin_15"
+        android:textColor="@color/color_999999"
+        android:textSize="@dimen/margin_12" />
+
+
+</LinearLayout>

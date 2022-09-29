@@ -133,4 +133,10 @@
     </declare-styleable>
 
 
+    <declare-styleable name="SearchLayout">
+        <attr name="Sear_textSize" format="dimension" />
+        <attr name="Sear_textColor" format="boolean" />
+        <attr name="Sear_background" format="boolean" />
+    </declare-styleable>
+
 </resources>

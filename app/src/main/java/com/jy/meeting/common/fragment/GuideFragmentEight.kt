@@ -17,6 +17,7 @@ import com.jy.meeting.common.SelectPictrueActivity
 import com.jy.meeting.common.adapter.CommonBaseRVAdapter
 import com.jy.meeting.databinding.FragmentGuideEightBinding
 import com.jy.meeting.view.dialog.FootPrintTipsDialog
+import com.jy.meeting.view.dialog.PhotoExplainDialog
 import com.ximalife.library.Constant
 import com.ximalife.library.base.BaseFragment
 import com.ximalife.library.http.model.TxtWithPhotoModel
@@ -117,10 +118,6 @@ class GuideFragmentEight :
 
             pathList = data!!.getStringArrayListExtra(Constant.PICTRUELIST)
 
-
-
-
-
             if (pathList != null && pathList.size > 0) {
 
                 for (i in 0 until pathList.size) {
@@ -171,7 +168,9 @@ class GuideFragmentEight :
 
                 helper.itemView.setOnClickListener {
                     if (!TextUtils.isEmpty(item.imgPath)) {
-
+                        //展示图片描述弹窗
+                        var photoExplainDialog = PhotoExplainDialog(getLContext(), txtWithPhotoModelList as ArrayList<TxtWithPhotoModel>)
+                        photoExplainDialog.show()
 
                     } else {
                         addSelectPictrue(helper.position)
@@ -180,9 +179,10 @@ class GuideFragmentEight :
 
                 ivItemRemove.setOnClickListener {
                     slectPhotoModelList.remove(item.imgPath)
+                    txtWithPhotoModelList.remove(item)
                     var txtWithPhotoModel = TxtWithPhotoModel()
                     txtWithPhotoModel.imgPath = ""
-                    txtWithPhotoModelList.set(helper.position, txtWithPhotoModel)
+                    txtWithPhotoModelList.add(txtWithPhotoModel)
                     notifyDataSetChanged()
                 }
             }

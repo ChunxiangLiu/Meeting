@@ -4,6 +4,6 @@
     tools:ignore="MissingDefaultResource"
     >
 
-    <solid android:color="@color/white"/>
+    <solid android:color="@color/color_CCffffff"/>
     <corners android:radius="@dimen/margin_10"/>
 </shape>

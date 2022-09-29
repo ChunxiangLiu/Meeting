@@ -33,6 +33,7 @@
     <dimen name="margin_302">302dp</dimen>
     <dimen name="margin_100">100dp</dimen>
     <dimen name="margin_120">120dp</dimen>
+    <dimen name="margin_240">240dp</dimen>
 
 
 </resources>
