@@ -36,6 +36,7 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
 
     override fun initView() {
+        fragmentList.add(GuideFragmentTen())
         fragmentList.add(GuideFragmentNine())
         fragmentList.add(GuideFragmntOne())
         fragmentList.add(GuideFragmntTwo())

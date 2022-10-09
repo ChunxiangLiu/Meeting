@@ -1,38 +1,60 @@
 package com.jy.meeting.common.fragment
 
-import android.app.Activity
-import android.content.Intent
-import android.content.res.TypedArray
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
-import android.view.View
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
-import com.bumptech.glide.Glide
-import com.chad.library.adapter.base.BaseViewHolder
-import com.jy.meeting.R
-import com.jy.meeting.common.SelectPictrueActivity
-import com.jy.meeting.common.adapter.CommonBaseRVAdapter
-import com.jy.meeting.databinding.FragmentGuideEightBinding
-import com.jy.meeting.databinding.FragmentGuideNineBinding
+import com.jy.meeting.common.adapter.SearchTagAdapter
 import com.jy.meeting.databinding.FragmentGuideTenBinding
-import com.jy.meeting.view.dialog.FootPrintTipsDialog
-import com.jy.meeting.view.dialog.PhotoExplainDialog
-import com.ximalife.library.Constant
 import com.ximalife.library.base.BaseFragment
-import com.ximalife.library.http.model.TxtWithPhotoModel
-import com.ximalife.library.util.SettingUtils
-import com.ximalife.library.view.CustomRoundAngleImageView
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.log
+import com.ximalife.library.http.model.TextModel
+import com.ximalife.library.view.flow.FlowTagLayout
+import com.ximalife.library.view.flow.OnTagSelectListener
+import kotlinx.android.synthetic.main.item_dailog_foot_print.view.*
 
 class GuideFragmentTen :
-    BaseFragment<FragmentGuideTenBinding>(FragmentGuideTenBinding::inflate){
+    BaseFragment<FragmentGuideTenBinding>(FragmentGuideTenBinding::inflate) {
+
+    var textList = ArrayList<TextModel>()
+
+    var selectPosition = 0//选中的文本
 
     override fun initView(savedInstanceState: Bundle?) {
+
+
+    }
+
+    override fun initData() {
+        textList.add(TextModel("java", false))
+        textList.add(TextModel("javaEE", false))
+        textList.add(TextModel("javaME", false))
+        textList.add(TextModel("c", false))
+        textList.add(TextModel("php", false))
+        textList.add(TextModel("ios", false))
+        textList.add(TextModel("c++", false))
+        textList.add(TextModel("c#", false))
+        textList.add(TextModel("Android", false))
+
+        val historyAdapter = SearchTagAdapter(activity)
+        //设置限制显示行数
+        binding.mFlowLayout.setLimitLineCount(3)
+        binding.mFlowLayout.setAdapter(historyAdapter)
+        //设置流布局显示模式，单选，多选，点击
+        binding.mFlowLayout.setTagCheckedMode(FlowTagLayout.FLOW_TAG_CHECKED_MULTI)
+        historyAdapter.clearAndAddAll(textList)
+
+        //获取监听选中标签List
+        binding.mFlowLayout.setOnTagSelectListener(object : OnTagSelectListener {
+            override fun onItemSelect(parent: FlowTagLayout?, selectedList: MutableList<Int>) {
+                for (condListBean in textList) {
+                    condListBean.isCheck = false
+                }
+
+                for (pos in selectedList) {
+                    textList.get(pos).isCheck = true
+                }
+
+                historyAdapter.notifyDataSetChanged()
+            }
+
+        })
 
 
     }

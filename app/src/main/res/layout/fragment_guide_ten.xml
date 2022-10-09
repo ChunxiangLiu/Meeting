@@ -26,39 +26,12 @@
         android:textSize="@dimen/margin_14" />
 
 
-    <FrameLayout
+    <com.ximalife.library.view.flow.FlowTagLayout
+        android:id="@+id/mFlowLayout"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/margin_240"
-        android:layout_marginLeft="@dimen/margin_30"
-        android:layout_marginTop="@dimen/margin_20"
-        android:layout_marginRight="@dimen/margin_30"
-        android:alpha="120"
-        android:background="@drawable/drawable_white_10">
-
-        <com.ximalife.library.view.ClearEditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@null"
-            android:gravity="top"
-            android:hint="@string/str_introduce_hint"
-            android:paddingLeft="@dimen/dp_10"
-            android:paddingTop="@dimen/margin_9"
-            android:paddingRight="@dimen/dp_10"
-            android:textColor="@color/color_999999"
-            android:textColorHint="@color/color_999999"
-            android:textSize="@dimen/margin_14" />
-
-
-        <TextView
-            android:id="@+id/text_leng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:paddingRight="@dimen/dp_10"
-            android:paddingBottom="@dimen/margin_9"
-            android:text="1/100" />
-
-    </FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_30"
+        android:layout_marginVertical="@dimen/margin_20" />
 
 
 </LinearLayout>
