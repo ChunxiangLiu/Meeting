@@ -10,7 +10,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AlertDialog;
 
 import com.airbnb.lottie.LottieAnimationView;
-import com.ximalife.library.R;
+import com.meet.library.R;
 
 /**
  * Created by zsxx on 2018/1/30.

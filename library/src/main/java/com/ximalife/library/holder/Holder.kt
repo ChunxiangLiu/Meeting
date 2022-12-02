@@ -1,7 +1,7 @@
 package com.ximalife.library.holder
 
 import android.content.Context
-import com.ximalife.library.R
+import com.meet.library.R
 import com.ximalife.library.base.BaseAppApplication
 import com.ximalife.library.view.ToastUtil
 

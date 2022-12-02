@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.res.TypedArray
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.FrameLayout
 import android.widget.ImageView
@@ -13,7 +12,7 @@ import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.chad.library.adapter.base.BaseViewHolder
 import com.jy.meeting.R
-import com.jy.meeting.common.SelectPictrueActivity
+import com.jy.meeting.common.SelectPictureActivity
 import com.jy.meeting.common.adapter.CommonBaseRVAdapter
 import com.jy.meeting.databinding.FragmentGuideEightBinding
 import com.jy.meeting.view.dialog.FootPrintTipsDialog
@@ -23,9 +22,7 @@ import com.ximalife.library.base.BaseFragment
 import com.ximalife.library.http.model.TxtWithPhotoModel
 import com.ximalife.library.util.SettingUtils
 import com.ximalife.library.view.CustomRoundAngleImageView
-import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.math.log
 
 class GuideFragmentEight :
     BaseFragment<FragmentGuideEightBinding>(FragmentGuideEightBinding::inflate),
@@ -85,7 +82,7 @@ class GuideFragmentEight :
                     if (!itemClick) {
                         footPrintTipsDialog.show()
                     } else {
-                        val intent = Intent(context, SelectPictrueActivity::class.java)
+                        val intent = Intent(context, SelectPictureActivity::class.java)
 
                         intent.putExtra(Constant.MAXSLECTEDNUM,
                             Constant.SELECT_PICTRUE_DEFAULT_MAX_NUM)
@@ -195,7 +192,7 @@ class GuideFragmentEight :
         isAddPhotoFlag = true
         isAddPhotoPosition = position
 
-        val intent = Intent(context, SelectPictrueActivity::class.java)
+        val intent = Intent(context, SelectPictureActivity::class.java)
 
         intent.putExtra(Constant.MAXSLECTEDNUM,
             Constant.SELECT_PICTRUE_DEFAULT_MAX_NUM - slectPhotoModelList.size)

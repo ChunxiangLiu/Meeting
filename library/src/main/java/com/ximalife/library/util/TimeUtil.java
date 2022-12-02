@@ -6,22 +6,11 @@ package com.ximalife.library.util;
  * 1.System.currentTimeMillis()
  * 2.Calendar.getInstance()
  */
-
-
-import android.content.Context;
-
-import com.ximalife.library.R;
-import com.ximalife.library.http.model.TxtWithPhotoModel;
-
 import java.text.ParseException;
-import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
-import java.util.Locale;
-import java.util.Random;
+
 
 /**
  * Created by xing 2017/6/14.
@@ -30,7 +19,6 @@ import java.util.Random;
  */
 
 public class TimeUtil {
-
 
     /**
      * 得到现在分钟

@@ -10,7 +10,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
-import com.ximalife.library.R;
+import com.meet.library.R;
+
 
 /**
  * Class description

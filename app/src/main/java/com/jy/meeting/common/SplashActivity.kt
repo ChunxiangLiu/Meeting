@@ -1,7 +1,6 @@
 package com.jy.meeting.common
 
 import android.os.Handler
-import com.jy.meeting.TestActvity
 import com.jy.meeting.databinding.ActivitySplashBinding
 import com.jy.meeting.view.dialog.RegisterOrLoginDialog
 import com.ximalife.library.Constant
@@ -15,7 +14,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
 
 
     override fun initView() {
-//        StartActivityUtil.startActivity(this, TestActvity::class.java)
         if (SPUtils.get(this, Constant.ISLOGIN, false) as Boolean) {
             StartActivityUtil.startActivity(this, GuidActivity::class.java)
         } else {

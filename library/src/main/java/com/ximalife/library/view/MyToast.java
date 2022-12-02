@@ -7,7 +7,8 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.ximalife.library.R;
+import com.meet.library.R;
+
 
 public class MyToast {
 

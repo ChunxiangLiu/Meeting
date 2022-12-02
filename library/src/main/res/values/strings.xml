@@ -32,9 +32,9 @@
     <string name="str_guid_one_random_name">随机昵称</string>
     <string name="str_guid_two_text_tips">我是</string>
     <string name="str_guid_two_text_age">年龄</string>
-    <string name="str_guid_two_text_age_tips">岁</string>
+    <string name="str_guid_two_text_age_tips">%d岁</string>
     <string name="str_guid_two_text_height">身高</string>
-    <string name="str_guid_two_text_height_tips">cm</string>
+    <string name="str_guid_two_text_height_tips">%dcm</string>
     <string name="str_guid_two_gender_age_tips">*性别、年龄注册完成后不可修改</string>
     <string name="str_man">男人</string>
     <string name="str_woman">女人</string>
@@ -83,6 +83,18 @@
 
     <string name="str_select_me_title">选择符合自己的标签</string>
     <string name="str_select_me_tips">最少3个，%s会帮你生成自我介绍</string>
+
+    <string name="str_select_he_tips">我心里的她/他</string>
+
+    <string name="str_authentication">最后，实名一下</string>
+    <string name="str_late_authentication">稍后认证</string>
+    <string name="str_authentication_tips">为了保障你的交友安全，请完成实名。\n认证后即可匹配其他实名用户哦。</string>
+
+    <string name="str_authentication_name">请输入姓名</string>
+    <string name="str_authentication_user_id">请输入身份证</string>
+    <string name="str_authentication_register">认证并完成注册</string>
+    <string name="str_authentication_privacy_policy">详情《隐私政策》</string>
+    <string name="str_authentication_artificial">遇到问题？人工认证</string>
 
     <string name="permission_fail_tips">被永久拒绝授权，请手动授予权限</string>
 

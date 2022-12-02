@@ -10,7 +10,7 @@ import android.view.View;
 
 import androidx.appcompat.widget.AppCompatImageView;
 
-import com.ximalife.library.R;
+import com.meet.library.R;
 
 
 public class CustomRoundAngleGridImageView extends AppCompatImageView {

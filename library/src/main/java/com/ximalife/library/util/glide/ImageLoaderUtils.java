@@ -12,7 +12,7 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.DrawableCrossFadeFactory;
-import com.ximalife.library.R;
+import com.meet.library.R;
 import com.ximalife.library.base.BaseAppApplication;
 
 import java.io.File;

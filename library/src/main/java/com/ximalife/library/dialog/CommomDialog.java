@@ -7,7 +7,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
-import com.ximalife.library.R;
+import com.meet.library.R;
 
 
 public class CommomDialog extends Dialog implements View.OnClickListener {

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 
 import androidx.annotation.NonNull;
 
-import com.ximalife.library.BuildConfig;
+import com.meet.library.BuildConfig;
 import com.ximalife.library.base.BaseAppApplication;
 import com.ximalife.library.util.TokenUtils;
 

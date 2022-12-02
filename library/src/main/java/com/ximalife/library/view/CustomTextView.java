@@ -16,7 +16,7 @@ import android.util.AttributeSet;
 
 import androidx.appcompat.widget.AppCompatTextView;
 
-import com.ximalife.library.R;
+import com.meet.library.R;
 
 
 /**

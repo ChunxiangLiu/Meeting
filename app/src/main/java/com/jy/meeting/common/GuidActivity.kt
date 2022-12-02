@@ -1,7 +1,5 @@
 package com.jy.meeting.common
 
-import android.text.TextUtils
-import android.util.Log
 import android.view.KeyEvent
 import android.view.View
 import android.widget.ImageView
@@ -13,7 +11,6 @@ import com.jy.meeting.common.adapter.XFragmentAdapter
 import com.jy.meeting.common.fragment.*
 import com.jy.meeting.databinding.ActivityGuidBinding
 import com.ximalife.library.base.BaseActivity
-import com.ximalife.library.http.model.GuideMessageModel
 import com.ximalife.library.util.event.EventBusCode
 import com.ximalife.library.util.event.EventMessage
 import org.greenrobot.eventbus.Subscribe
@@ -28,24 +25,21 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
 
     lateinit var myViewPageAdapter: XFragmentAdapter
 
-    var userNikeName = ""
-
-    var index = 0
-
-    var currentItem = 0
-
+    var currentPosition = 0//当前fragment的索引
 
     override fun initView() {
-        fragmentList.add(GuideFragmentTen())
-        fragmentList.add(GuideFragmentNine())
-        fragmentList.add(GuideFragmntOne())
-        fragmentList.add(GuideFragmntTwo())
-        fragmentList.add(GuideFragmntThree())
+        fragmentList.add(GuideFragmentOne())
+        fragmentList.add(GuideFragmentTwo())
+        fragmentList.add(GuideFragmentThree())
         fragmentList.add(GuideFragmentFour())
         fragmentList.add(GuideFragmentFive())
         fragmentList.add(GuideFragmentSix())
         fragmentList.add(GuideFragmentSeven())
         fragmentList.add(GuideFragmentEight())
+        fragmentList.add(GuideFragmentNine())
+        fragmentList.add(GuideFragmentTen())
+        fragmentList.add(GuideFragmentEleven())
+        fragmentList.add(GuideFragmentTwelve())
 
         setupWithPager(fragmentList, null)
         binding.viewPager.offscreenPageLimit = fragmentList.size
@@ -90,79 +84,64 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
      */
     private fun setupWithPager(list: List<Fragment>, title: Array<String>?) {
         myViewPageAdapter = XFragmentAdapter(supportFragmentManager, list, title)
-        binding.viewPager.setAdapter(myViewPageAdapter)
+        binding.viewPager.adapter = myViewPageAdapter
     }
 
 
     override fun initListener() {
         //ViewPager滑动Pager监听
-        binding.viewPager.addOnPageChangeListener(object : OnPageChangeListener {
+        binding.viewPager.setOnPageChangeListener(object : OnPageChangeListener {
+            //滑动过程中的回调
             override fun onPageScrolled(
                 position: Int,
                 positionOffset: Float,
-                positionOffsetPixels: Int,
+                positionOffsetPixels: Int
             ) {
-                Log.i("viewpage", "onPageScrolled : " + position);
-
             }
 
+            /**
+             * 设置按钮最后一页显示，其他页面隐藏
+             *
+             * @param position
+             */
             override fun onPageSelected(position: Int) {
-                Log.i("viewpage", "onPageSelected : " + position);
+                //判断当前是在那个page，就把对应下标的ImageView原点设置为选中状态的图片
                 for (i in imageViews.indices) {
-                    imageViews.get(position)!!
-                        .setBackgroundResource(R.drawable.drawable_guide_point_selected)
+                    imageViews[position]!!.setBackgroundResource(R.drawable.drawable_guide_point_selected)
                     if (position != i) {
-                        imageViews.get(i)!!
-                            .setBackgroundResource(R.drawable.drawable_guide_point_unselected)
+                        imageViews[i]!!.setBackgroundResource(R.drawable.drawable_guide_point_unselected)
                     }
                 }
             }
 
-            override fun onPageScrollStateChanged(state: Int) {
-                Log.i("viewpage", "onPageScrollStateChanged : " + state);
-            }
-
+            override fun onPageScrollStateChanged(state: Int) {}
         })
-
-
-        binding.tvNext.setOnClickListener {
-            if (myViewPageAdapter != null) {
-                if (currentItem > fragmentList.size) return@setOnClickListener
-                binding.ivGuidBg.setImageResource(R.mipmap.ic_guid_bg)
-                if (currentItem == 0) {
-                    if (!TextUtils.isEmpty(userNikeName)) {
-                        binding.tvGenderAgeTips.visibility = View.VISIBLE
-                    }
-                } else if (currentItem == 1) {
-                    binding.tvGenderAgeTips.visibility = View.GONE
-                } else if (currentItem == 7) {
-                    binding.ivGuidBg.setImageResource(R.mipmap.ic_guide_bg_two)
-                }
-                binding.viewPager.setCurrentItem(currentItem + 1)
-                myViewPageAdapter.notifyDataSetChanged()
-                currentItem++
-            }
-        }
-
-        binding.ivTop.setOnClickListener {
-            if (myViewPageAdapter != null) {
-                if (currentItem == 0 || currentItem > fragmentList.size) return@setOnClickListener
-                binding.ivGuidBg.setImageResource(R.mipmap.ic_guid_bg)
-
-                if (currentItem == 1) {
-                    binding.tvGenderAgeTips.visibility = View.GONE
-                } else if (currentItem == 2) {
-                    binding.tvGenderAgeTips.visibility = View.VISIBLE
-                } else if (currentItem == 7) {
-                    binding.ivGuidBg.setImageResource(R.mipmap.ic_guide_bg_two)
-                }
-                binding.viewPager.setCurrentItem(currentItem - 1)
-                myViewPageAdapter.notifyDataSetChanged()
-                currentItem--
-            }
-        }
-
     }
+
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    fun onEventMessageDel(message: EventMessage<String>?) {
+        if (message == null) return
+        when (message.getAction()) {
+            EventBusCode.FRAGMENT_GUIDE_NEXT -> {
+                if (currentPosition >= fragmentList.size - 1) {
+                    currentPosition = fragmentList.size - 1;
+                    return
+                }
+                currentPosition++
+                binding.viewPager.currentItem = currentPosition
+            }
+            EventBusCode.FRAGMENT_GUIDE_TOP -> {
+                if (currentPosition <= 0) {
+                    currentPosition = 0;
+                    return
+                }
+                currentPosition--
+                binding.viewPager.currentItem = currentPosition
+            }
+        }
+    }
+
 
     override fun dispatchKeyEvent(event: KeyEvent): Boolean {
         return if (event.keyCode == KeyEvent.KEYCODE_BACK) {
@@ -170,27 +149,6 @@ class GuidActivity : BaseActivity<ActivityGuidBinding>(ActivityGuidBinding::infl
             true
         } else {
             super.dispatchKeyEvent(event)
-        }
-    }
-
-    @Subscribe(threadMode = ThreadMode.MAIN)
-    fun onEventMessageDel(message: EventMessage<String>?) {
-        if (message == null) return
-        when (message.getAction()) {
-            EventBusCode.FRAGMNET_GUIDE_ONE -> {
-                var date = message.getData() as GuideMessageModel
-                userNikeName = date.text
-                currentItem = date.position
-//                when (date.position) {
-//                    0 -> {
-//                        if (!TextUtils.isEmpty(date.text)) {
-//                            binding.tvNext.setBackgroundResource(R.mipmap.ic_dialog_register_or_login_bt_bg)
-//                        } else {
-//                            binding.tvNext.setBackgroundResource(R.drawable.drawable_guid_bt_bg)
-//                        }
-//                    }
-//                }
-            }
         }
     }
 

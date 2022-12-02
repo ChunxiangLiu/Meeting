@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_126">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_authentication"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_20" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/margin_30"
+            android:text="@string/str_late_authentication"
+            android:textColor="@color/color_333333"
+            android:textSize="@dimen/margin_12" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:lineSpacingExtra="@dimen/margin_12"
+        android:text="@string/str_authentication_tips"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_16" />
+
+
+    <EditText
+        android:id="@+id/et_user_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_16"
+        android:background="@drawable/drawable_radius_10"
+        android:hint="@string/str_authentication_name"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16"
+        android:textColorHint="@color/color_999999"
+        android:textSize="@dimen/margin_16" />
+
+    <EditText
+        android:id="@+id/et_user_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_15"
+        android:layout_marginTop="@dimen/margin_15"
+        android:background="@drawable/drawable_radius_10"
+        android:hint="@string/str_authentication_user_id"
+        android:paddingLeft="@dimen/dp_10"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16"
+        android:textColorHint="@color/color_999999"
+        android:textSize="@dimen/margin_16" />
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_30"
+        android:background="@drawable/drawable_guid_bt_bg"
+        android:gravity="center"
+        android:paddingTop="@dimen/margin_16"
+        android:paddingBottom="@dimen/margin_16"
+        android:text="@string/str_authentication_register"
+        android:textColor="@color/white"
+        android:textSize="@dimen/margin_16" />
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_20"
+        android:layout_marginTop="@dimen/margin_20">
+
+        <TextView
+            android:id="@+id/tv_privacy_policy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/str_authentication_privacy_policy"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/margin_12" />
+
+        <TextView
+            android:id="@+id/tv_artificial"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/str_authentication_artificial"
+            android:textColor="@color/color_999999"
+            android:textSize="@dimen/margin_12" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

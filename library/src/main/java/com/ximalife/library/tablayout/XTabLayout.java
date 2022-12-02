@@ -1,5 +1,6 @@
 package com.ximalife.library.tablayout;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.ColorStateList;
@@ -40,7 +41,7 @@ import androidx.core.widget.TextViewCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
-import com.ximalife.library.R;
+import com.meet.library.R;
 
 
 import java.lang.annotation.Retention;
@@ -1319,6 +1320,7 @@ public class XTabLayout extends HorizontalScrollView {
          * @param resId A resource ID referring to the icon that should be displayed
          * @return The current instance for call chaining
          */
+        @SuppressLint("RestrictedApi")
         @NonNull
         public Tab setIcon(@DrawableRes int resId) {
             if (mParent == null) {

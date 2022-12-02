@@ -71,6 +71,7 @@ class UserSchoolDialog : Dialog {
             }
 
             override fun afterTextChanged(s: Editable?) {
+
             }
 
         })

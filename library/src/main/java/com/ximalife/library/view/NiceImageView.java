@@ -8,7 +8,8 @@ import android.util.AttributeSet;
 import androidx.annotation.ColorInt;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
-import com.ximalife.library.R;
+
+import com.meet.library.R;
 import com.ximalife.library.util.Util;
 
 public class NiceImageView extends AppCompatImageView {

@@ -10,7 +10,7 @@ import android.view.MotionEvent;
 
 import androidx.appcompat.widget.AppCompatEditText;
 
-import com.ximalife.library.R;
+import com.meet.library.R;
 
 
 public class ClearEditText extends AppCompatEditText {

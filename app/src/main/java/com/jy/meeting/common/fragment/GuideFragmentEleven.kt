@@ -2,6 +2,7 @@ package com.jy.meeting.common.fragment
 
 import android.os.Bundle
 import com.jy.meeting.common.adapter.SearchTagAdapter
+import com.jy.meeting.databinding.FragmentGuideElevenBinding
 import com.jy.meeting.databinding.FragmentGuideTenBinding
 import com.ximalife.library.base.BaseFragment
 import com.ximalife.library.http.model.TextModel
@@ -9,8 +10,8 @@ import com.ximalife.library.view.flow.FlowTagLayout
 import com.ximalife.library.view.flow.OnTagSelectListener
 import kotlinx.android.synthetic.main.item_dailog_foot_print.view.*
 
-class GuideFragmentTen :
-    BaseFragment<FragmentGuideTenBinding>(FragmentGuideTenBinding::inflate) {
+class GuideFragmentEleven :
+    BaseFragment<FragmentGuideElevenBinding>(FragmentGuideElevenBinding::inflate) {
 
     var textList = ArrayList<TextModel>()
 
@@ -46,8 +47,9 @@ class GuideFragmentTen :
                 for (condListBean in textList) {
                     condListBean.isCheck = false
                 }
+
                 for (pos in selectedList) {
-                    textList[pos].isCheck = true
+                    textList.get(pos).isCheck = true
                 }
 
                 historyAdapter.notifyDataSetChanged()

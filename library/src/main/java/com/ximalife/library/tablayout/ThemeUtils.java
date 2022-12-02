@@ -18,7 +18,8 @@ package com.ximalife.library.tablayout;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import com.ximalife.library.R;
+
+import com.meet.library.R;
 
 class ThemeUtils {
 

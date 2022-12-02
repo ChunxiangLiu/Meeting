@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_126"
+        android:text="@string/str_select_he_tips"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_20" />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_30"
+        android:layout_marginTop="@dimen/margin_30"
+        android:text="@string/str_select_me_tips"
+        android:textColor="@color/color_333333"
+        android:textSize="@dimen/margin_14" />
+
+
+    <com.ximalife.library.view.flow.FlowTagLayout
+        android:id="@+id/mFlowLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_30"
+        android:layout_marginVertical="@dimen/margin_20" />
+
+
+
+
+</LinearLayout>

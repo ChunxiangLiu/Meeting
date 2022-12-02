@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.viewbinding.ViewBinding
-import com.ximalife.library.R
+import com.meet.library.R
 
 abstract class BaseStatusActivity<VB : ViewBinding>(private val inflate: (LayoutInflater) -> VB) : BaseActivity<VB>(inflate) {
     override fun onCreate(savedInstanceState: Bundle?) {

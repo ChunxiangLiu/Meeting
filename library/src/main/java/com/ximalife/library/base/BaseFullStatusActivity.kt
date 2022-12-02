@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
 import androidx.viewbinding.ViewBinding
-import com.ximalife.library.R
+import com.meet.library.R
 import com.ximalife.library.util.ScreenUtil
 
 abstract class BaseFullStatusActivity<VB : ViewBinding>(private val inflate: (LayoutInflater) -> VB) : BaseActivity<VB>(inflate) {

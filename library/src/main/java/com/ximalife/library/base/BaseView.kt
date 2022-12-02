@@ -16,8 +16,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.gyf.immersionbar.ImmersionBar
 import com.hjq.bar.TitleBar
+import com.meet.library.R
 import com.umeng.analytics.MobclickAgent
-import com.ximalife.library.R
 import com.ximalife.library.dialog.AlertDialogCustom
 import com.ximalife.library.http.IIBaseViewModelEventObserver
 import com.ximalife.library.http.viewmodel.BaseViewModel

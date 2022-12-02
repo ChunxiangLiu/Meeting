@@ -1,8 +1,8 @@
 package com.ximalife.library.http
 
 import android.util.Log
+import com.meet.library.BuildConfig
 import com.readystatesoftware.chuck.ChuckInterceptor
-import com.ximalife.library.BuildConfig
 import com.ximalife.library.base.BaseAppApplication
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

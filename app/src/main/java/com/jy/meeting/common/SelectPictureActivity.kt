@@ -27,7 +27,7 @@ import java.io.File
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SelectPictrueActivity :
+class SelectPictureActivity :
     BaseActivity<DialogSelectPictrueBinding>(DialogSelectPictrueBinding::inflate) {
 
     var MaxSlectedNum = 0
